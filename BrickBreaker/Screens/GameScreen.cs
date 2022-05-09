@@ -137,6 +137,11 @@ namespace BrickBreaker
             }
         }
 
+        public void DavidMethod()
+        {
+
+        }
+
         private void gameTimer_Tick(object sender, EventArgs e)
         {
             powerUpTimer++;
