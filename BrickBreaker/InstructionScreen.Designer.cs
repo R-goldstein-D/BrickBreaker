@@ -40,7 +40,7 @@
             this.instructionLabel.Name = "instructionLabel";
             this.instructionLabel.Size = new System.Drawing.Size(740, 457);
             this.instructionLabel.TabIndex = 0;
-            this.instructionLabel.Text = "label1";
+            this.instructionLabel.Text = "instructionLabel";
             this.instructionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // returnButton
