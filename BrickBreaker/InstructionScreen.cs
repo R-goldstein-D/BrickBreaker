@@ -30,6 +30,7 @@ namespace BrickBreaker
             instructionLabel.BackColor = Color.Transparent;
 
             returnButton.Text = "Return";
+
         }
 
         private void returnButton_Click(object sender, EventArgs e)
