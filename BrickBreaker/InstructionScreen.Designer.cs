@@ -28,10 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.controlInstrctionsLabel = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // controlInstrctionsLabel
+            // 
+            this.controlInstrctionsLabel.Font = new System.Drawing.Font("MV Boli", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.controlInstrctionsLabel.Location = new System.Drawing.Point(131, 29);
+            this.controlInstrctionsLabel.Name = "controlInstrctionsLabel";
+            this.controlInstrctionsLabel.Size = new System.Drawing.Size(596, 394);
+            this.controlInstrctionsLabel.TabIndex = 0;
+            this.controlInstrctionsLabel.Text = "controlInstructionsLabel";
+            // 
+            // InstructionScreen
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.controlInstrctionsLabel);
+            this.Name = "InstructionScreen";
+            this.Size = new System.Drawing.Size(850, 550);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Label controlInstrctionsLabel;
     }
 }
