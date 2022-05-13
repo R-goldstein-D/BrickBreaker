@@ -52,10 +52,10 @@ namespace BrickBreaker
             Rectangle blockRec = new Rectangle(b.x, b.y, b.width, b.height);
             Rectangle ballRec = new Rectangle(x, y, size, size);
 
-            while (true)
-            {
+            
                 if (ballRec.IntersectsWith(blockRec))
                 {
+                  
                     if(xSpeed <= 0.2 && xSpeed >= -0.2)
                     {
                         xSpeed *= rand.Next(Convert.ToInt32(-1.5), -1);
@@ -67,7 +67,7 @@ namespace BrickBreaker
 
                     if (ySpeed <= 0.2 && xSpeed >= -0.2)
                     {
-                        ySpeed = -2;
+                        ySpeed = -1.5;
                     }
                     else
                     {
@@ -78,7 +78,7 @@ namespace BrickBreaker
                 
                 return blockRec.IntersectsWith(ballRec);
             }
-        }
+        
 
         public void PaddleCollision(Paddle p)
         {
@@ -95,11 +95,11 @@ namespace BrickBreaker
 
                 if (xSpeed < 0.2 && xSpeed > -0.2)
                 {
-                    xSpeed = rand.Next(1, 3);
+                    xSpeed *= rand.Next(1, 3);
                 }
                 else if (xSpeed > 9 || xSpeed < -9)
                 {
-                    xSpeed *= 0.5;
+                    xSpeed *= -0.5;
                 }
                 else if (ySpeed < 0.5 && ySpeed > -0.5)
                 {
@@ -107,68 +107,14 @@ namespace BrickBreaker
                 }
                 else if (ySpeed > 9 || ySpeed < -9)
                 {
-                    ySpeed *= rand.Next(-1, Convert.ToInt32(-0.5));
+                    ySpeed *= rand.Next(-1, Convert.ToInt32(-0.7));
                 }
 
 
 
             }
         }
-        //public void RandomDirection()
-        //{
-        //    //change angle
-        //    int xDifAngle = rand.Next(0, 2);
-        //    int yDifAngle = rand.Next(0, 2);
-
-        //    //change speed depending on original direction
-        //    if (xSpeed > 0)
-        //    {
-        //        xSpeed = defaultSpeed;
-        //        xSpeed += xDifAngle;
-        //    }
-        //    else
-        //    {
-        //        xSpeed = -defaultSpeed;
-        //        xSpeed -= xDifAngle;
-        //    }
-
-        //    if (ySpeed > 0)
-        //    {
-        //        ySpeed = defaultSpeed;
-        //        ySpeed += yDifAngle;
-        //    }
-        //    else
-        //    {
-        //        ySpeed = -defaultSpeed;
-        //        ySpeed -= yDifAngle;
-        //    }
-        //}
-        public void Movement()
-        {
-
-            //if (xSpeed == 0 || ySpeed == 0)
-            //{
-            //    ySpeed += 5;
-            //    xSpeed += 5;
-            //}
-            if(xSpeed > 0)
-            {
-                xSpeed *= rand.Next(1, 3);
-            }
-            else if(ySpeed > 0)
-            {
-                ySpeed *= rand.Next(-1, 3);
-            }
-            else if(ySpeed <= 0)
-            {
-                ySpeed *= -1;
-            }
-            else if (xSpeed <= 0)
-            {
-                xSpeed *= -1;
-            }
-
-        }
+     
 
         public void WallCollision(UserControl UC)
         {
@@ -186,6 +132,11 @@ namespace BrickBreaker
             if (y <= 2)
             {
                 ySpeed *= -1;
+                if (ySpeed >= -1 && ySpeed <= 1)
+                {
+                    ySpeed = xSpeed;
+                }
+
             }
         }
 
