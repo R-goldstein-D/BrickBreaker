@@ -41,7 +41,9 @@
             this.playButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.playButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.playButton.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.playButton.Location = new System.Drawing.Point(325, 130);
+            this.playButton.Margin = new System.Windows.Forms.Padding(4);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(194, 77);
             this.playButton.TabIndex = 0;
@@ -56,6 +58,7 @@
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitButton.Location = new System.Drawing.Point(325, 331);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(4);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(194, 77);
             this.exitButton.TabIndex = 1;
@@ -65,6 +68,7 @@
             // 
             // instructionsButton
             // 
+
             this.instructionsButton.BackColor = System.Drawing.Color.White;
             this.instructionsButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.instructionsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
@@ -87,6 +91,7 @@
             this.Controls.Add(this.instructionsButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.playButton);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MenuScreen";
             this.Size = new System.Drawing.Size(854, 542);
             this.ResumeLayout(false);
