@@ -28,10 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.instructionLabel = new System.Windows.Forms.Label();
+            this.returnButton = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // instructionLabel
+            // 
+            this.instructionLabel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.instructionLabel.Font = new System.Drawing.Font("Kristen ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.instructionLabel.Location = new System.Drawing.Point(53, 10);
+            this.instructionLabel.Name = "instructionLabel";
+            this.instructionLabel.Size = new System.Drawing.Size(740, 457);
+            this.instructionLabel.TabIndex = 0;
+            this.instructionLabel.Text = "instructionLabel";
+            this.instructionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // returnButton
+            // 
+            this.returnButton.Font = new System.Drawing.Font("Kristen ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.returnButton.ForeColor = System.Drawing.Color.Goldenrod;
+            this.returnButton.Location = new System.Drawing.Point(359, 470);
+            this.returnButton.Name = "returnButton";
+            this.returnButton.Size = new System.Drawing.Size(129, 55);
+            this.returnButton.TabIndex = 1;
+            this.returnButton.Text = "returnButton";
+            this.returnButton.UseVisualStyleBackColor = true;
+            this.returnButton.Click += new System.EventHandler(this.returnButton_Click);
+            // 
+            // InstructionScreen
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.returnButton);
+            this.Controls.Add(this.instructionLabel);
+            this.Name = "InstructionScreen";
+            this.Size = new System.Drawing.Size(854, 542);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Label instructionLabel;
+        private System.Windows.Forms.Button returnButton;
     }
 }
