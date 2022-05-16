@@ -29,20 +29,21 @@ namespace BrickBreaker
             y = Convert.ToInt32(y + ySpeed);
             if (xSpeed == 0.1)
             {
-                xSpeed *= -1.5;
+                xSpeed = -1.5;
             }
             else if (xSpeed >= 10)
             {
-                xSpeed *= -1;
+                xSpeed *= -0.8;
             }
             if (ySpeed == 0.1)
             {
-                ySpeed *= -1.5;
+                ySpeed = 1.5;
             }
             else if (ySpeed >= 10)
             {
-                ySpeed *= -1;
+                ySpeed *= -0.8;
             }
+           
         }
 
         public bool BlockCollision(Block b)
@@ -55,6 +56,7 @@ namespace BrickBreaker
             
                 if (ballRec.IntersectsWith(blockRec))
                 {
+                
                   
                     if(xSpeed <= 0.2 && xSpeed >= -0.2)
                     {
@@ -64,12 +66,13 @@ namespace BrickBreaker
                     {
                         xSpeed *= -1;
                     }
+                    
 
                     if (ySpeed <= 0.2 && xSpeed >= -0.2)
                     {
                         ySpeed = -1.5;
                     }
-                    else
+                    else 
                     {
                         ySpeed *= -1;
                     }
@@ -132,10 +135,7 @@ namespace BrickBreaker
             if (y <= 2)
             {
                 ySpeed *= -1;
-                if (ySpeed >= -1 && ySpeed <= 1)
-                {
-                    ySpeed = xSpeed;
-                }
+              
 
             }
         }
