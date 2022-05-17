@@ -6,14 +6,14 @@ namespace BrickBreaker
 {
     public class Ball
     {
-        public int x, y, xSpeed, ySpeed, size, bounceDirection;
+        public int x, y, size, defaultSpeed;
+        public double xSpeed, ySpeed;
         public Color colour;
 
         public static Random rand = new Random();
 
         
  
-
         public Ball(int _x, int _y, int _xSpeed, int _ySpeed, int _ballSize)
         {
             x = _x;
@@ -25,25 +25,63 @@ namespace BrickBreaker
 
         public void Move()
         {
-            x = x + xSpeed;
-            y = y + ySpeed;
+            x = Convert.ToInt32(x + xSpeed);
+            y = Convert.ToInt32(y + ySpeed);
+            if (xSpeed == 0.1)
+            {
+                xSpeed = -1.5;
+            }
+            else if (xSpeed >= 10)
+            {
+                xSpeed *= -0.8;
+            }
+            if (ySpeed == 0.1)
+            {
+                ySpeed = 1.5;
+            }
+            else if (ySpeed >= 10)
+            {
+                ySpeed *= -0.8;
+            }
+           
         }
 
         public bool BlockCollision(Block b)
         {
 
-            
+
             Rectangle blockRec = new Rectangle(b.x, b.y, b.width, b.height);
             Rectangle ballRec = new Rectangle(x, y, size, size);
 
-            if (ballRec.IntersectsWith(blockRec))
-            {
-                ySpeed *= rand.Next(-2, -1);
-                xSpeed *= rand.Next(-2, -1);
-            }
+            
+                if (ballRec.IntersectsWith(blockRec))
+                {
+                
+                  
+                    if(xSpeed <= 0.2 && xSpeed >= -0.2)
+                    {
+                        xSpeed *= rand.Next(Convert.ToInt32(-1.5), -1);
+                    }
+                    else
+                    {
+                        xSpeed *= -1;
+                    }
+                    
 
-            return blockRec.IntersectsWith(ballRec);
-        }
+                    if (ySpeed <= 0.2 && xSpeed >= -0.2)
+                    {
+                        ySpeed = -1.5;
+                    }
+                    else 
+                    {
+                        ySpeed *= -1;
+                    }
+                    
+                }
+                
+                return blockRec.IntersectsWith(ballRec);
+            }
+        
 
         public void PaddleCollision(Paddle p)
         {
@@ -52,10 +90,34 @@ namespace BrickBreaker
 
             if (ballRec.IntersectsWith(paddleRec))
             {
-                ySpeed *= -1;
-                
+                x = p.x + size/2;
+                y = p.y - size;
+                ySpeed *= -1.5;
+
+                xSpeed *= 1;
+
+                if (xSpeed < 0.2 && xSpeed > -0.2)
+                {
+                    xSpeed *= rand.Next(1, 3);
+                }
+                else if (xSpeed > 9 || xSpeed < -9)
+                {
+                    xSpeed *= -0.5;
+                }
+                else if (ySpeed < 0.5 && ySpeed > -0.5)
+                {
+                    ySpeed *= rand.Next(Convert.ToInt32(-1.5), -1);
+                }
+                else if (ySpeed > 9 || ySpeed < -9)
+                {
+                    ySpeed *= rand.Next(-1, Convert.ToInt32(-0.7));
+                }
+
+
+
             }
         }
+     
 
         public void WallCollision(UserControl UC)
         {
@@ -73,8 +135,13 @@ namespace BrickBreaker
             if (y <= 2)
             {
                 ySpeed *= -1;
+              
+
             }
         }
+
+      
+
         public bool BottomCollision(UserControl UC)
         {
             Boolean didCollide = false;

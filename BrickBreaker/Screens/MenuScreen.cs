@@ -34,5 +34,16 @@ namespace BrickBreaker
             gs.Location = new Point((form.Width - gs.Width) / 2, (form.Height - gs.Height) / 2);
         }
 
+        private void instructionsButton_Click(object sender, EventArgs e)
+        {
+            InstructionScreen isn = new InstructionScreen();
+            Form form = this.FindForm();
+
+            form.Controls.Add(isn);
+            form.Controls.Remove(this);
+
+            isn.Location = new Point((form.Width - isn.Width) / 2, (form.Height - isn.Height) / 2); 
+
+        }
     }
 }
