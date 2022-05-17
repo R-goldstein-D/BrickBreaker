@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace BrickBreaker
 {
@@ -22,8 +23,23 @@ namespace BrickBreaker
         {
             y = y + speed;
         }
-        public void PaddleCollide(Paddle p)
+        public bool PaddleCollide(Paddle p)
         {
+            Rectangle powerUpRec = new Rectangle(x, y, size, size);
+            Rectangle paddleRec = new Rectangle(p.x, p.y, p.width, p.height);
+
+            if (powerUpRec.IntersectsWith(paddleRec))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public void PowerUpActive()
+        {
+
         }
     }
 }
