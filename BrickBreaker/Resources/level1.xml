@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<level>
+	<block>
+		<x>95</x>
+		<y>68</y>
+		<hp>1</hp>
+		<colour>DarkRed</colour>
+	</block>
+	<block>
+		<x>160</x>
+		<y>135</y>
+		<hp>3</hp>
+		<colour>YellowGreen</colour>
+	</block>
+	<block>
+		<x>277</x>
+		<y>69</y>
+		<hp>1</hp>
+		<colour>DarkRed</colour>
+	</block>
+	<block>
+		<x>340</x>
+		<y>167</y>
+		<hp>2</hp>
+		<colour>Goldenrod</colour>
+	</block>
+	<block>
+		<x>420</x>
+		<y>69</y>
+		<hp>2</hp>
+		<colour>Goldenrod</colour>
+	</block>
+	<block>
+		<x>474</x>
+		<y>135</y>
+		<hp>2</hp>
+		<colour>Goldenrod</colour>
+	</block>
+	<block>
+		<x>618</x>
+		<y>86</y>
+		<hp>2</hp>
+		<colour>Goldenrod</colour>
+	</block>
+</level>

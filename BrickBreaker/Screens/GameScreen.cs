@@ -1,7 +1,7 @@
 ﻿/*  Created by: 
  *  Project: Brick Breaker
  *  Date: 
- */ 
+ */
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
+using System.Xml;
 
 namespace BrickBreaker
 {
@@ -78,21 +79,8 @@ namespace BrickBreaker
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
 
-            #region Creates blocks for generic level. Need to replace with code that loads levels.
-            
-            //TODO - replace all the code in this region eventually with code that loads levels from xml files
-            
-            blocks.Clear();
-            int x = 10;
-
-            while (blocks.Count < 12)
-            {
-                x += 57;
-                Block b1 = new Block(x, 10, 1, Color.White);
-                blocks.Add(b1);
-            }
-
-            #endregion
+            //callback to level loading  
+            xmlLoad();
 
             // start the game engine loop
             gameTimer.Enabled = true;
@@ -103,7 +91,56 @@ namespace BrickBreaker
             int powerUpSpeed = 3;
             int powerUpSize = ballSize / 2;
             powerUp = new PowerUp(powerUpX, powerUpY, powerUpSpeed, powerUpSize);
+
+
         }
+        #region Creates blocks for generic level. Need to replace with code that loads levels.
+
+        //TODO - replace all the code in this region eventually with code that loads levels from xml files
+        //reads Xml file then creates objects from the infomation in the xml file 
+        public void xmlLoad()
+        {
+            //counter to use when level is cleared of blocks/bricks 
+            int blockCounter;
+            //intergers for level objects 
+            int newX, newY, newHp;
+            //strings for levels objects and locations 
+            string x, y, hp;
+            //colour for colour objects 
+            Color newColour;
+
+            XmlReader reader = XmlReader.Create("Resources/level1.xml");
+            while (reader.Read())
+            {
+                if (reader.NodeType == XmlNodeType.Text)
+                {
+                    x = reader.ReadContentAsString();
+
+                    newX = Convert.ToInt32(x);
+
+                    reader.ReadToNextSibling("y");
+                    newY = Convert.ToInt32(reader.ReadString());
+
+
+                    reader.ReadToNextSibling("hp");
+                    newHp = Convert.ToInt32(reader.ReadString());
+
+
+                    reader.ReadToNextSibling("colour");
+                    newColour = Color.FromName(reader.ReadString());
+
+                    Block blocklevel = new Block(newX, newY, newHp, newColour);
+                    blocks.Add(blocklevel);
+                }
+            }
+            reader.Close();
+       
+
+        }
+
+
+        #endregion
+
 
         private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
@@ -137,10 +174,7 @@ namespace BrickBreaker
             }
         }
 
-        public void DavidMethod()
-        {
 
-        }
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
@@ -220,7 +254,7 @@ namespace BrickBreaker
             // Goes to the game over screen
             Form form = this.FindForm();
             MenuScreen ps = new MenuScreen();
-            
+
             ps.Location = new Point((form.Width - ps.Width) / 2, (form.Height - ps.Height) / 2);
 
             form.Controls.Add(ps);
@@ -243,7 +277,7 @@ namespace BrickBreaker
             e.Graphics.FillRectangle(ballBrush, ball.x, ball.y, ball.size, ball.size);
 
             //Draws PowerUp
-            foreach (PowerUp powerUp in p )
+            foreach (PowerUp powerUp in p)
             {
                 e.Graphics.FillRectangle(powerupBrush, powerUp.x, powerUp.y, powerUp.size, powerUp.size);
             }
