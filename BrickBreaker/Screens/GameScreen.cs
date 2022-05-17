@@ -46,7 +46,6 @@ namespace BrickBreaker
         SolidBrush powerupBrush = new SolidBrush(Color.Green);
 
 
-
         #endregion
 
         //game values
@@ -151,6 +150,7 @@ namespace BrickBreaker
             catch
             {
                 //if level doesnt exist then switch to either winner or loser screen
+                OnEnd();
                 return;
             }
 
