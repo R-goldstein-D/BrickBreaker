@@ -45,7 +45,7 @@
             // 
             this.powerUpTimerLabel.AutoSize = true;
             this.powerUpTimerLabel.ForeColor = System.Drawing.Color.White;
-            this.powerUpTimerLabel.Location = new System.Drawing.Point(386, 107);
+            this.powerUpTimerLabel.Location = new System.Drawing.Point(414, 482);
             this.powerUpTimerLabel.Name = "powerUpTimerLabel";
             this.powerUpTimerLabel.Size = new System.Drawing.Size(35, 13);
             this.powerUpTimerLabel.TabIndex = 0;
