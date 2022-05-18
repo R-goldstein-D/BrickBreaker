@@ -46,7 +46,6 @@ namespace BrickBreaker
         SolidBrush powerupBrush = new SolidBrush(Color.Green);
 
 
-
         #endregion
 
         //game values
@@ -151,6 +150,7 @@ namespace BrickBreaker
             catch
             {
                 //if level doesnt exist then switch to either winner or loser screen
+                OnEnd();
                 return;
             }
 
@@ -362,7 +362,7 @@ namespace BrickBreaker
             }
 
             // Draws ball
-            e.Graphics.FillRectangle(ballBrush, ball.x, ball.y, ball.size, ball.size);
+            e.Graphics.FillEllipse(ballBrush, ball.x, ball.y, ball.size, ball.size);
 
             //Draws PowerUp
             foreach (PowerUp powerUp in powerups )
