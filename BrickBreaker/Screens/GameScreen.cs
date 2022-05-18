@@ -42,7 +42,6 @@ namespace BrickBreaker
         // Brushes
         SolidBrush paddleBrush = new SolidBrush(Color.White);
         SolidBrush ballBrush = new SolidBrush(Color.White);
-        SolidBrush blockBrush = new SolidBrush(Color.Red);
         SolidBrush powerupBrush = new SolidBrush(Color.Green);
 
 
@@ -84,19 +83,8 @@ namespace BrickBreaker
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
 
-            currentLevel = 1;
+           currentLevel = 1;
 
-            ////go to next level
-            //blocks.Clear();
-            //int x = 10;
-
-            //while (blocks.Count < 12)
-            //{
-            //    x += 57;
-            //    Block b1 = new Block(x, 10, 1, Color.White);
-            //    blocks.Add(b1);
-
-            //}
            nextLevel();
        
             // start the game engine loop
@@ -113,7 +101,6 @@ namespace BrickBreaker
         public void nextLevel()
         {
             blocks.Clear();
-
             string level = $"level0{currentLevel}.xml";
 
             try
@@ -134,12 +121,6 @@ namespace BrickBreaker
 
                         reader.ReadToNextSibling("hp");
                         newHp = Convert.ToInt32(reader.ReadString());
-
-                        //reader.ReadToNextSibling("width");
-                        //newWidth = Convert.ToInt32(reader.ReadString());
-
-                        //reader.ReadToNextSibling("height");
-                        //newHeight = Convert.ToInt32(reader.ReadString());
 
                         reader.ReadToNextSibling("colour");
                         newColour = Color.FromName(reader.ReadString());
@@ -360,7 +341,7 @@ namespace BrickBreaker
             // Draws blocks
             foreach (Block b in blocks)
             {
-                e.Graphics.FillRectangle(blockBrush, b.x, b.y, b.width, b.height);
+                e.Graphics.FillRectangle(new SolidBrush(b.colour), b.x, b.y, b.width, b.height);
             }
 
             // Draws ball
