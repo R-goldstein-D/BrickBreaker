@@ -10,6 +10,7 @@ namespace BrickBreaker
     internal class PowerUp
     {
         public int speed, x, y, size;
+        public string powerUpType; 
         public static Random Random = new Random();
 
         public PowerUp( int _x, int _y, int _speed, int _size)
@@ -19,6 +20,7 @@ namespace BrickBreaker
             y = _y;
             size = _size;
         }
+
         public void Move()
         {
             y = y + speed;
@@ -37,9 +39,26 @@ namespace BrickBreaker
                 return false;
             }
         }
-        public void PowerUpActive()
+        public void PowerUpChoice()
         {
-
+            int powerUpchoice = Random.Next(1, 11);
+            //increase length of  (comment back in after testing others)
+            if (powerUpchoice > 8)
+            {
+                powerUpType = "Long Paddle";
+            }
+            //add life
+            else if (powerUpchoice == 2)
+            { powerUpType = "Add Life"; }
+            //speed up paddle and shorten it
+            else if (powerUpchoice == 3 || powerUpchoice == 4 || powerUpchoice == 5)
+            {
+                powerUpType = "Short Paddle";
+            }
+            else if (powerUpchoice == 6 || powerUpchoice == 7)
+            { //increase ball size
+                powerUpType = "Large Ball";
+            }
         }
     }
 }
