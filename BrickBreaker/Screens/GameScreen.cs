@@ -88,7 +88,7 @@ namespace BrickBreaker
 
             //callback to level loading  
             xmlLoad();
-        //go to next level
+            //go to next level
             blocks.Clear();
             int x = 10;
 
