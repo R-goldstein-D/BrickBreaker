@@ -85,10 +85,10 @@ namespace BrickBreaker
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
 
-            #region Creates blocks for generic level. Need to replace with code that loads levels.
-            
-            //TODO - replace all the code in this region eventually with code that loads levels from xml files
-            
+
+            //callback to level loading  
+            xmlLoad();
+        //go to next level
             blocks.Clear();
             int x = 10;
 
@@ -97,19 +97,70 @@ namespace BrickBreaker
                 x += 57;
                 Block b1 = new Block(x, 10, 1, Color.White);
                 blocks.Add(b1);
+
             }
-
-            #endregion
-
+           // nextLevel();
+       
             // start the game engine loop
             gameTimer.Enabled = true;
 
             //setup powerup values for testing purposes
-            int powerUpX;
-            int powerUpY;
+            int powerUpX =0;
+            int powerUpY =0;
             int powerUpSpeed = 3;
             int powerUpSize = ballSize / 2;
+            powerUp = new PowerUp(powerUpX, powerUpY, powerUpSpeed, powerUpSize);
+
+
+
         }
+        #region Creates blocks for generic level. Need to replace with code that loads levels.
+
+        //TODO - replace all the code in this region eventually with code that loads levels from xml files
+        //reads Xml file then creates objects from the infomation in the xml file 
+        public void xmlLoad()
+        {
+            //counter to use when level is cleared of blocks/bricks 
+            int blockCounter;
+            //intergers for level objects 
+            int newX, newY, newHp;
+            //strings for levels objects and locations 
+            string x, y, hp;
+            //colour for colour objects 
+            Color newColour;
+
+            XmlReader reader = XmlReader.Create("Resources/level1.xml");
+            while (reader.Read())
+            {
+                if (reader.NodeType == XmlNodeType.Text)
+                {
+                    x = reader.ReadContentAsString();
+
+                    newX = Convert.ToInt32(x);
+
+                    reader.ReadToNextSibling("y");
+                    newY = Convert.ToInt32(reader.ReadString());
+
+
+                    reader.ReadToNextSibling("hp");
+                    newHp = Convert.ToInt32(reader.ReadString());
+
+
+                    reader.ReadToNextSibling("colour");
+                    newColour = Color.FromName(reader.ReadString());
+
+                    Block blocklevel = new Block(newX, newY, newHp, newColour);
+                    blocks.Add(blocklevel);
+                }
+            }
+            reader.Close();
+       
+
+        }
+
+
+        #endregion
+
 
         //code to go from one level to the next
         public void nextLevel()
@@ -346,6 +397,7 @@ namespace BrickBreaker
             e.Graphics.FillRectangle(ballBrush, ball.x, ball.y, ball.size, ball.size);
 
             //Draws PowerUp
+
             foreach (PowerUp powerUp in powerups )
             {
                 e.Graphics.FillRectangle(powerupBrush, powerUp.x, powerUp.y, powerUp.size, powerUp.size);
