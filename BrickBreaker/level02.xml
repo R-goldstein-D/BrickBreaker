@@ -2,7 +2,7 @@
 <level>
 	<block>
 		<x>100</x>
-		<y>100</y>
+		<y>90</y>
 		<hp>1</hp>
 		<colour>Red</colour>
 	</block>
