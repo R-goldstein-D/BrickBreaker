@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<level>
+	<block>
+		<x>100</x>
+		<y>90</y>
+		<hp>1</hp>
+		<colour>Red</colour>
+	</block>
+	<block>
+		<x>100</x>
+		<y>150</y>
+		<hp>2</hp>
+		<colour>Goldenrod</colour>
+	</block>
+</level>

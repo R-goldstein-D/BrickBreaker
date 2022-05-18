@@ -84,18 +84,20 @@ namespace BrickBreaker
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
 
-            //go to next level
-            blocks.Clear();
-            int x = 10;
+            currentLevel = 1;
 
-            while (blocks.Count < 12)
-            {
-                x += 57;
-                Block b1 = new Block(x, 10, 1, Color.White);
-                blocks.Add(b1);
+            ////go to next level
+            //blocks.Clear();
+            //int x = 10;
 
-            }
-           // nextLevel();
+            //while (blocks.Count < 12)
+            //{
+            //    x += 57;
+            //    Block b1 = new Block(x, 10, 1, Color.White);
+            //    blocks.Add(b1);
+
+            //}
+           nextLevel();
        
             // start the game engine loop
             gameTimer.Enabled = true;
@@ -111,13 +113,14 @@ namespace BrickBreaker
         public void nextLevel()
         {
             blocks.Clear();
+
             string level = $"level0{currentLevel}.xml";
 
             try
             {
                 XmlReader reader = XmlReader.Create(level);
 
-                int newX, newY, newHp, newWidth, newHeight;
+                int newX, newY, newHp;
                 Color newColour;
 
                 while (reader.Read())
@@ -132,16 +135,16 @@ namespace BrickBreaker
                         reader.ReadToNextSibling("hp");
                         newHp = Convert.ToInt32(reader.ReadString());
 
-                        reader.ReadToNextSibling("width");
-                        newWidth = Convert.ToInt32(reader.ReadString());
+                        //reader.ReadToNextSibling("width");
+                        //newWidth = Convert.ToInt32(reader.ReadString());
 
-                        reader.ReadToNextSibling("height");
-                        newHeight = Convert.ToInt32(reader.ReadString());
+                        //reader.ReadToNextSibling("height");
+                        //newHeight = Convert.ToInt32(reader.ReadString());
 
                         reader.ReadToNextSibling("colour");
                         newColour = Color.FromName(reader.ReadString());
 
-                        Block b = new Block(newX, newY, newHp, /*newWidth, newHeight,*/ newColour);
+                        Block b = new Block(newX, newY, newHp, newColour);
                         blocks.Add(b);
                     }
                 }
@@ -150,7 +153,6 @@ namespace BrickBreaker
             catch
             {
                 //if level doesnt exist then switch to either winner or loser screen
-                OnEnd();
                 return;
             }
 
@@ -188,6 +190,8 @@ namespace BrickBreaker
         }
 
         private void gameTimer_Tick(object sender, EventArgs e)
+            {
+=======
         {
             lifeCount.Text = $"{lives}";
             powerUpTimer--;
@@ -320,8 +324,8 @@ namespace BrickBreaker
                     }
                     if (blocks.Count == 0)
                     {
-                        gameTimer.Enabled = false;
-                        OnEnd();
+                        currentLevel++;
+                        nextLevel();
                     }
 
                     break;
