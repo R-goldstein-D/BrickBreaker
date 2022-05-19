@@ -226,151 +226,152 @@ namespace BrickBreaker
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-            lifeCount.Text = $"{lives}";
-            powerUpTimer--;
-            if (powerUpTimer >= 0)
             {
-                powerUpTimerLabel.Visible = true;
-                powerUpTimerLabel.Text = $"{powerUpTimer}";
-            }
-            // Move the paddle
-            if (leftArrowDown && paddle.x > 0)
-            {
-                paddle.Move("left");
-            }
-            if (rightArrowDown && paddle.x < (this.Width - paddle.width))
-            {
-                paddle.Move("right");
-            }
+                lifeCount.Text = $"{lives}";
+                powerUpTimer--;
+                if (powerUpTimer >= 0)
+                {
+                    powerUpTimerLabel.Visible = true;
+                    powerUpTimerLabel.Text = $"{powerUpTimer}";
+                }
+                // Move the paddle
+                if (leftArrowDown && paddle.x > 0)
+                {
+                    paddle.Move("left");
+                }
+                if (rightArrowDown && paddle.x < (this.Width - paddle.width))
+                {
+                    paddle.Move("right");
+                }
 
-            // Move ball
-            ball.Move();
+                // Move ball
+                ball.Move();
 
-            //Drop powerups down
-            foreach (PowerUp powerUp in powerups)
-            {
-                powerUp.Move();
-            }
+                //Drop powerups down
+                foreach (PowerUp powerUp in powerups)
+                {
+                    powerUp.Move();
+                }
 
-            // Check for collision with top and side walls
-            ball.WallCollision(this);
+                // Check for collision with top and side walls
+                ball.WallCollision(this);
 
-            // Check for ball hitting bottom of screen
-            if (ball.BottomCollision(this))
-            {
-                lives--;
+                // Check for ball hitting bottom of screen
+                if (ball.BottomCollision(this))
+                {
+                    lives--;
 
-                // Moves the ball back to origin
-                ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
-                ball.y = (this.Height - paddle.height) - 85;
+                    // Moves the ball back to origin
+                    ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
+                    ball.y = (this.Height - paddle.height) - 85;
 
                 if (lives == 0)
                 {
                     OnEnd();
                 }
-            }
 
-            // Check for collision of ball with paddle, (incl. paddle movement)
-            ball.PaddleCollision(paddle);
+                // Check for collision of ball with paddle, (incl. paddle movement)
+                ball.PaddleCollision(paddle);
 
-            //Check for collision of powerup and paddle
-            try
-            {
-                foreach (PowerUp p in powerups)
+                //Check for collision of powerup and paddle
+                try
                 {
-                    if (p.PaddleCollide(paddle))
+                    foreach (PowerUp p in powerups)
                     {
-                        powerups.Remove(p);
-                        //start poweruptimer 
-                        powerUpTimer = 800;
-                        //increase length of  (comment back in after testing others)
-                        if (p.powerUpType == "Long Paddle")
+                        if (p.PaddleCollide(paddle))
                         {
-                            if (paddle.width < 250)
+                            powerups.Remove(p);
+                            //start poweruptimer 
+                            powerUpTimer = 800;
+                            //increase length of  (comment back in after testing others)
+                            if (p.powerUpType == "Long Paddle")
                             {
-                                paddle.width = paddle.width + 50;
+                                if (paddle.width < 250)
+                                {
+                                    paddle.width = paddle.width + 50;
+                                }
+                                else
+                                {
+                                    lives++;
+                                }
                             }
-                            else
+                            //add life
+                            else if (p.powerUpType == "Add Life")
+                            { lives++; }
+                            //speed up paddle and shorten it
+                            else if (p.powerUpType == "Short Paddle")
                             {
-                                lives++;
-                            }
-                        }
-                        //add life
-                        else if (p.powerUpType == "Add Life")
-                        { lives++; }
-                        //speed up paddle and shorten it
-                        else if (p.powerUpType == "Short Paddle")
-                        {
-                            if (paddle.speed < 12 && paddle.width > 20)
-                            {
-                                paddle.speed = paddle.speed + 4;
-                                paddle.width = paddle.width - 20;
-                            }
-                            else
-                            {
-                                lives++;
-                            }
+                                if (paddle.speed < 12 && paddle.width > 20)
+                                {
+                                    paddle.speed = paddle.speed + 4;
+                                    paddle.width = paddle.width - 20;
+                                }
+                                else
+                                {
+                                    lives++;
+                                }
 
-                        }
-                        else if (p.powerUpType == "Large Ball")
-                        { //increase ball size
-                            if (ball.size < 50)
-                            {
-                                ball.size = ball.size + ball.size / 2;
                             }
-                            else
-                            {
-                                lives++;
+                            else if (p.powerUpType == "Large Ball")
+                            { //increase ball size
+                                if (ball.size < 50)
+                                {
+                                    ball.size = ball.size + ball.size / 2;
+                                }
+                                else
+                                {
+                                    lives++;
+                                }
                             }
                         }
+
                     }
-
                 }
-            }
-            catch
-            { 
-            }
-            
-            // Check if ball has collided with any blocks
-            foreach (Block b in blocks)
-            {
-                if (ball.BlockCollision(b))
+                catch
                 {
-                    
-                    blocks.Remove(b);
-
-                    //check if powerups spawn
-                    powerUpCheck = r.Next(0, 2);
-                    if (powerUpCheck == 1)
-                    {
-                        int powerUpX = b.x;
-                        int powerUpY = b.y;
-                        int powerUpSpeed = 3;
-                        int powerUpSize = 10;
-
-
-
-                        powerUp = new PowerUp(powerUpX, powerUpY, powerUpSpeed, powerUpSize);
-                        powerups.Add(powerUp);
-                        powerUp.PowerUpChoice();
-                    }
-                    if (blocks.Count == 0)
-                    {
-                        currentLevel++;
-                        nextLevel();
-                    }
-
-                    break;
                 }
-            }
 
-            if (powerUpTimer == 0)
-            {
-                Reset_PowerUps();
-            }
+                // Check if ball has collided with any blocks
+                foreach (Block b in blocks)
+                {
+                    if (ball.BlockCollision(b))
+                    {
 
-            //redraw the screen
-            Refresh();
+                        blocks.Remove(b);
+
+                        //check if powerups spawn
+                        powerUpCheck = r.Next(0, 2);
+                        if (powerUpCheck == 1)
+                        {
+                            int powerUpX = b.x;
+                            int powerUpY = b.y;
+                            int powerUpSpeed = 3;
+                            int powerUpSize = 10;
+
+
+
+                            powerUp = new PowerUp(powerUpX, powerUpY, powerUpSpeed, powerUpSize);
+                            powerups.Add(powerUp);
+                            powerUp.PowerUpChoice();
+                        }
+                        if (blocks.Count == 0)
+                        {
+                            currentLevel++;
+                            nextLevel();
+                        }
+
+                        break;
+                    }
+                }
+
+                if (powerUpTimer == 0)
+                {
+                    Reset_PowerUps();
+                }
+
+                //redraw the screen
+                Refresh();
+            }
         }
 
         public void OnEnd()
@@ -387,7 +388,6 @@ namespace BrickBreaker
             form.Controls.Add(gos);
             form.Controls.Remove(this);
         }
-
         public void GameScreen_Paint(object sender, PaintEventArgs e)
         {
             // Draws paddle
