@@ -184,7 +184,7 @@ namespace BrickBreaker
             }
             catch
             {
-                //if level doesnt exist then switch to either winner or loser screen
+                //if level doesnt exist then switch loser screen
                 OnEnd();
                 return;
             }
