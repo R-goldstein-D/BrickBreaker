@@ -46,7 +46,6 @@ namespace BrickBreaker
         SolidBrush powerupBrush = new SolidBrush(Color.Green);
 
 
-
         #endregion
 
         //game values
@@ -154,7 +153,6 @@ namespace BrickBreaker
             catch
             {
                 //if level doesnt exist then switch to either winner or loser screen
-               
                 return;
             }
 
@@ -193,6 +191,9 @@ namespace BrickBreaker
 
         private void gameTimer_Tick(object sender, EventArgs e)
             {
+=======
+        {
+            lifeCount.Text = $"{lives}";
             powerUpTimer--;
             if (powerUpTimer >= 0)
             {
@@ -245,40 +246,59 @@ namespace BrickBreaker
             {
                 foreach (PowerUp p in powerups)
                 {
-                    if (powerUp.PaddleCollide(paddle))
+                    if (p.PaddleCollide(paddle))
                     {
-                        int powerUpchoice = r.Next(1,11);
+                        powerups.Remove(p);
                         //start poweruptimer 
                         powerUpTimer = 800;
                         //increase length of  (comment back in after testing others)
-                        if (powerUpchoice > 8)
+                        if (p.powerUpType == "Long Paddle")
                         {
-                            paddle.width = paddle.width + 50;
+                            if (paddle.width < 250)
+                            {
+                                paddle.width = paddle.width + 50;
+                            }
+                            else
+                            {
+                                lives++;
+                            }
                         }
                         //add life
-                        else if (powerUpchoice == 2)
+                        else if (p.powerUpType == "Add Life")
                         { lives++; }
                         //speed up paddle and shorten it
-                        else if (powerUpchoice == 3 || powerUpchoice == 4 || powerUpchoice == 5)
+                        else if (p.powerUpType == "Short Paddle")
                         {
-                            paddle.speed = paddle.speed + 4;
-                            paddle.width = paddle.width - 20;
+                            if (paddle.speed < 12 && paddle.width > 20)
+                            {
+                                paddle.speed = paddle.speed + 4;
+                                paddle.width = paddle.width - 20;
+                            }
+                            else
+                            {
+                                lives++;
+                            }
+
                         }
-                        else if (powerUpchoice == 6 || powerUpchoice == 7)
+                        else if (p.powerUpType == "Large Ball")
                         { //increase ball size
-                          ball.size = ball.size + ball.size / 2;
+                            if (ball.size < 50)
+                            {
+                                ball.size = ball.size + ball.size / 2;
+                            }
+                            else
+                            {
+                                lives++;
+                            }
                         }
                     }
-                    if (p.y >= paddle.y)
-                    {
-                        powerups.Remove(powerUp);
-                    }
+
                 }
             }
             catch
-            {
-
+            { 
             }
+            
             // Check if ball has collided with any blocks
             foreach (Block b in blocks)
             {
@@ -295,8 +315,12 @@ namespace BrickBreaker
                         int powerUpY = b.y;
                         int powerUpSpeed = 3;
                         int powerUpSize = 10;
+
+
+
                         powerUp = new PowerUp(powerUpX, powerUpY, powerUpSpeed, powerUpSize);
                         powerups.Add(powerUp);
+                        powerUp.PowerUpChoice();
                     }
                     if (blocks.Count == 0)
                     {
@@ -342,7 +366,7 @@ namespace BrickBreaker
             }
 
             // Draws ball
-            e.Graphics.FillRectangle(ballBrush, ball.x, ball.y, ball.size, ball.size);
+            e.Graphics.FillEllipse(ballBrush, ball.x, ball.y, ball.size, ball.size);
 
             //Draws PowerUp
             foreach (PowerUp powerUp in powerups )
