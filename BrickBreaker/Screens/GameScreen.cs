@@ -83,16 +83,16 @@ namespace BrickBreaker
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
 
-           currentLevel = 1;
+            currentLevel = 1;
 
-           nextLevel();
-       
+            nextLevel();
+
             // start the game engine loop
             gameTimer.Enabled = true;
 
             //setup powerup values for testing purposes
-            int powerUpX =0;
-            int powerUpY =0;
+            int powerUpX = 0;
+            int powerUpY = 0;
             int powerUpSpeed = 3;
             int powerUpSize = ballSize / 2;
             powerUp = new PowerUp(powerUpX, powerUpY, powerUpSpeed, powerUpSize);
@@ -140,7 +140,7 @@ namespace BrickBreaker
                 }
             }
             reader.Close();
-       
+
 
         }
 
@@ -226,50 +226,51 @@ namespace BrickBreaker
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
+
+            lifeCount.Text = $"{lives}";
+            powerUpTimer--;
+
+            if (powerUpTimer >= 0)
             {
-                lifeCount.Text = $"{lives}";
-                powerUpTimer--;
-                if (powerUpTimer >= 0)
-                {
-                    powerUpTimerLabel.Visible = true;
-                    powerUpTimerLabel.Text = $"{powerUpTimer}";
-                }
-                // Move the paddle
-                if (leftArrowDown && paddle.x > 0)
-                {
-                    paddle.Move("left");
-                }
-                if (rightArrowDown && paddle.x < (this.Width - paddle.width))
-                {
-                    paddle.Move("right");
-                }
+                powerUpTimerLabel.Visible = true;
+                powerUpTimerLabel.Text = $"{powerUpTimer}";
+            }
+            // Move the paddle
+            if (leftArrowDown && paddle.x > 0)
+            {
+                paddle.Move("left");
+            }
+            if (rightArrowDown && paddle.x < (this.Width - paddle.width))
+            {
+                paddle.Move("right");
+            }
 
-                // Move ball
-                ball.Move();
+            // Move ball
+            ball.Move();
 
-                //Drop powerups down
-                foreach (PowerUp powerUp in powerups)
-                {
-                    powerUp.Move();
-                }
+            //Drop powerups down
+            foreach (PowerUp powerUp in powerups)
+            {
+                powerUp.Move();
+            }
 
-                // Check for collision with top and side walls
-                ball.WallCollision(this);
+            // Check for collision with top and side walls
+            ball.WallCollision(this);
 
-                // Check for ball hitting bottom of screen
-                if (ball.BottomCollision(this))
-                {
-                    lives--;
+            // Check for ball hitting bottom of screen
+            if (ball.BottomCollision(this))
+            {
+                lives--;
 
-                    // Moves the ball back to origin
-                    ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
-                    ball.y = (this.Height - paddle.height) - 85;
+                // Moves the ball back to origin
+                ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
+                ball.y = (this.Height - paddle.height) - 85;
 
                 if (lives == 0)
                 {
                     OnEnd();
                 }
-
+            }
                 // Check for collision of ball with paddle, (incl. paddle movement)
                 ball.PaddleCollision(paddle);
 
@@ -371,8 +372,10 @@ namespace BrickBreaker
 
                 //redraw the screen
                 Refresh();
-            }
+
+
         }
+
 
         public void OnEnd()
         {
@@ -382,12 +385,13 @@ namespace BrickBreaker
             // Goes to the game over screen
             Form form = this.FindForm();
             GameoverScreen gos = new GameoverScreen();
-            
+
             gos.Location = new Point((form.Width - gos.Width) / 2, (form.Height - gos.Height) / 2);
 
             form.Controls.Add(gos);
             form.Controls.Remove(this);
         }
+
         public void GameScreen_Paint(object sender, PaintEventArgs e)
         {
             // Draws paddle
@@ -405,7 +409,7 @@ namespace BrickBreaker
 
             //Draws PowerUp
 
-            foreach (PowerUp powerUp in powerups )
+            foreach (PowerUp powerUp in powerups)
             {
                 e.Graphics.FillRectangle(powerupBrush, powerUp.x, powerUp.y, powerUp.size, powerUp.size);
             }
@@ -418,6 +422,6 @@ namespace BrickBreaker
             paddle.speed = 8;
             ball.size = 20;
         }
-
     }
+
 }
