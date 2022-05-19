@@ -75,7 +75,7 @@ namespace BrickBreaker
 
                     if (ySpeed <= 0.2 && xSpeed >= -0.2)
                     {
-                        ySpeed = -1.5;
+                        ySpeed = -1.8;
                     }
                     else if (ySpeed == 0)
                     {
@@ -83,7 +83,7 @@ namespace BrickBreaker
                     }
                     else 
                     {
-                        ySpeed *= -1;
+                        ySpeed *= -1.5;
                     }
                     
                 }

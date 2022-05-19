@@ -4,132 +4,144 @@
 		<x>12</x>
 		<y>12</y>
 		<hp>1</hp>
-		<colour>Gold</colour>
+		<colour>Brown</colour>
 	</block>
 	<block>
-		<x>234</x>
-		<y>12</y>
-		<hp>2</hp>
-		<colour>Gold</colour>
+		<x>23</x>
+		<y>15</y>
+		<hp>1</hp>
+		<colour>Brown</colour>
 	</block>
 	<block>
-		<x>743</x>
+		<x>42</x>
+		<y>42</y>
+		<hp>1</hp>
+		<colour>Brown</colour>
+	</block>
+	<block>
+		<x>760</x>
+		<y>345</y>
+		<hp>1</hp>
+		<colour>Brown</colour>
+	</block>
+	<block>
+		<x>567</x>
+		<y>90</y>
+		<hp>1</hp>
+		<colour>Brown</colour>
+	</block>
+	<block>
+		<x>840</x>
+		<y>432</y>
+		<hp>1</hp>
+		<colour>Brown</colour>
+	</block>
+	<block>
+		<x>12</x>
 		<y>12</y>
-		<hp>2</hp>
-		<colour>Gold</colour>
+		<hp>1</hp>
+		<colour>Brown</colour>
+	</block>
+	<block>
+		<x>657</x>
+		<y>192</y>
+		<hp>1</hp>
+		<colour>Brown</colour>
+	</block>
+	<block>
+		<x>756</x>
+		<y>342</y>
+		<hp>1</hp>
+		<colour>Brown</colour>
+	</block>
+	<block>
+		<x>80</x>
+		<y>12</y>
+		<hp>1</hp>
+		<colour>Brown</colour>
+	</block>
+	<block>
+		<x>147</x>
+		<y>12</y>
+		<hp>1</hp>
+		<colour>Brown</colour>
 	</block>
 	<block>
 		<x>215</x>
-		<y>19</y>
-		<hp>2</hp>
-		<colour>Gold</colour>
+		<y>12</y>
+		<hp>1</hp>
+		<colour>Red</colour>
 	</block>
 	<block>
 		<x>296</x>
-		<y>65</y>
-		<hp>2</hp>
-		<colour>Gold</colour>
+		<y>12</y>
+		<hp>1</hp>
+		<colour>Red</colour>
 	</block>
 	<block>
 		<x>364</x>
 		<y>12</y>
-		<hp>2</hp>
-		<colour>Gold</colour>
+		<hp>1</hp>
+		<colour>Red</colour>
 	</block>
 	<block>
 		<x>431</x>
-		<y>67</y>
-		<hp>2</hp>
-		<colour>Gold</colour>
+		<y>12</y>
+		<hp>1</hp>
+		<colour>Red</colour>
 	</block>
 	<block>
 		<x>499</x>
-		<y>234</y>
-		<hp>2</hp>
-		<colour>Gold</colour>
+		<y>12</y>
+		<hp>1</hp>
+		<colour>DarkRed</colour>
 	</block>
 	<block>
 		<x>577</x>
-		<y>653</y>
-		<hp>2</hp>
-		<colour>Gold</colour>
+		<y>12</y>
+		<hp>1</hp>
+		<colour>DarkRed</colour>
 	</block>
 	<block>
-		<x>643</x>
+		<x>645</x>
 		<y>12</y>
-		<hp>2</hp>
-		<colour>Gold</colour>
+		<hp>1</hp>
+		<colour>DarkRed</colour>
 	</block>
 	<block>
 		<x>712</x>
-		<y>23</y>
-		<hp>2</hp>
-		<colour>Gold</colour>
-	</block>
-	<block>
-		<x>593</x>
-		<y>132</y>
-		<hp>2</hp>
-		<colour>Gold</colour>
-	</block>
-	<block>
-		<x>253</x>
-		<y>102</y>
-		<hp>2</hp>
-		<colour>Gold</colour>
-	</block>
-	<block>
-		<x>234</x>
-		<y>107</y>
-		<hp>2</hp>
-		<colour>Gold</colour>
-	</block>
-	<block>
-		<x>540</x>
-		<y>163</y>
-		<hp>2</hp>
-		<colour>Gold</colour>
-	</block>
-	<block>
-		<x>123</x>
-		<y>329</y>
-		<hp>2</hp>
-		<colour>Gold</colour>
-	</block>
-	<block>
-		<x>88</x>
-		<y>37</y>
+		<y>12</y>
 		<hp>1</hp>
 		<colour>Red</colour>
 	</block>
 	<block>
-		<x>86</x>
-		<y>94</y>
+		<x>780</x>
+		<y>12</y>
+		<hp>1</hp>
+		<colour>DarkRed</colour>
+	</block>
+	<block>
+		<x>296</x>
+		<y>104</y>
+		<hp>1</hp>
+		<colour>DarkRed</colour>
+	</block>
+	<block>
+		<x>364</x>
+		<y>104</y>
+		<hp>1</hp>
+		<colour>DarkRed</colour>
+	</block>
+	<block>
+		<x>431</x>
+		<y>104</y>
 		<hp>1</hp>
 		<colour>Red</colour>
 	</block>
 	<block>
-		<x>234</x>
-		<y>37</y>
+		<x>499</x>
+		<y>104</y>
 		<hp>1</hp>
 		<colour>Red</colour>
-	</block>
-	<block>
-		<x>271</x>
-		<y>99</y>
-		<hp>1</hp>
-		<colour>Red</colour>
-	</block>
-	<block>
-		<x>435</x>
-		<y>356</y>
-		<hp>1</hp>
-		<colour>Red</colour>
-	</block>
-	<block>
-		<x>435</x>
-		<y>99</y>
-		<hp>1</hp>
-		<colour>Red</colour>
-	</block>
+	</block> 
 </level>
