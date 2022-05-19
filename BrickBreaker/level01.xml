@@ -7,26 +7,26 @@
 		<colour>Gold</colour>
 	</block>
 	<block>
-		<x>80</x>
+		<x>234</x>
 		<y>12</y>
 		<hp>2</hp>
 		<colour>Gold</colour>
 	</block>
 	<block>
-		<x>147</x>
+		<x>743</x>
 		<y>12</y>
 		<hp>2</hp>
 		<colour>Gold</colour>
 	</block>
 	<block>
 		<x>215</x>
-		<y>12</y>
+		<y>19</y>
 		<hp>2</hp>
 		<colour>Gold</colour>
 	</block>
 	<block>
 		<x>296</x>
-		<y>12</y>
+		<y>65</y>
 		<hp>2</hp>
 		<colour>Gold</colour>
 	</block>
@@ -38,62 +38,98 @@
 	</block>
 	<block>
 		<x>431</x>
-		<y>12</y>
+		<y>67</y>
 		<hp>2</hp>
 		<colour>Gold</colour>
 	</block>
 	<block>
 		<x>499</x>
-		<y>12</y>
+		<y>234</y>
 		<hp>2</hp>
 		<colour>Gold</colour>
 	</block>
 	<block>
 		<x>577</x>
-		<y>12</y>
+		<y>653</y>
 		<hp>2</hp>
 		<colour>Gold</colour>
 	</block>
 	<block>
-		<x>645</x>
+		<x>643</x>
 		<y>12</y>
 		<hp>2</hp>
 		<colour>Gold</colour>
 	</block>
 	<block>
 		<x>712</x>
-		<y>12</y>
+		<y>23</y>
 		<hp>2</hp>
 		<colour>Gold</colour>
 	</block>
 	<block>
-		<x>780</x>
-		<y>12</y>
+		<x>593</x>
+		<y>132</y>
 		<hp>2</hp>
 		<colour>Gold</colour>
 	</block>
 	<block>
-		<x>296</x>
-		<y>104</y>
+		<x>253</x>
+		<y>102</y>
 		<hp>2</hp>
 		<colour>Gold</colour>
 	</block>
 	<block>
-		<x>364</x>
-		<y>104</y>
+		<x>234</x>
+		<y>107</y>
 		<hp>2</hp>
 		<colour>Gold</colour>
 	</block>
 	<block>
-		<x>431</x>
-		<y>104</y>
+		<x>540</x>
+		<y>163</y>
 		<hp>2</hp>
 		<colour>Gold</colour>
 	</block>
 	<block>
-		<x>499</x>
-		<y>104</y>
+		<x>123</x>
+		<y>329</y>
 		<hp>2</hp>
 		<colour>Gold</colour>
-	</block> 
+	</block>
+	<block>
+		<x>88</x>
+		<y>37</y>
+		<hp>1</hp>
+		<colour>Red</colour>
+	</block>
+	<block>
+		<x>86</x>
+		<y>94</y>
+		<hp>1</hp>
+		<colour>Red</colour>
+	</block>
+	<block>
+		<x>234</x>
+		<y>37</y>
+		<hp>1</hp>
+		<colour>Red</colour>
+	</block>
+	<block>
+		<x>271</x>
+		<y>99</y>
+		<hp>1</hp>
+		<colour>Red</colour>
+	</block>
+	<block>
+		<x>435</x>
+		<y>356</y>
+		<hp>1</hp>
+		<colour>Red</colour>
+	</block>
+	<block>
+		<x>435</x>
+		<y>99</y>
+		<hp>1</hp>
+		<colour>Red</colour>
+	</block>
 </level>
