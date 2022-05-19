@@ -58,90 +58,486 @@
 		<x>80</x>
 		<y>12</y>
 		<hp>1</hp>
-		<colour>Brown</colour>
+		<colour>MediumVioletRed</colour>
 	</block>
 	<block>
 		<x>147</x>
 		<y>12</y>
-		<hp>1</hp>
-		<colour>Brown</colour>
+		<hp>1</hp
+		<colour>MediumVioletRed</colour>
 	</block>
 	<block>
 		<x>215</x>
 		<y>12</y>
 		<hp>1</hp>
-		<colour>Red</colour>
+		<colour>MediumVioletRed</colour>
 	</block>
 	<block>
 		<x>296</x>
 		<y>12</y>
 		<hp>1</hp>
-		<colour>Red</colour>
+		<colour>MediumVioletRed</colour>
 	</block>
 	<block>
 		<x>364</x>
 		<y>12</y>
 		<hp>1</hp>
-		<colour>Red</colour>
+		<colour>MediumVioletRed</colour>
 	</block>
 	<block>
 		<x>431</x>
 		<y>12</y>
 		<hp>1</hp>
-		<colour>Red</colour>
-	</block>
-	<block>
-		<x>499</x>
-		<y>12</y>
-		<hp>1</hp>
-		<colour>DarkRed</colour>
-	</block>
-	<block>
-		<x>577</x>
-		<y>12</y>
-		<hp>1</hp>
-		<colour>DarkRed</colour>
+		<colour>MediumVioletRed</colour>
 	</block>
 	<block>
 		<x>645</x>
 		<y>12</y>
 		<hp>1</hp>
-		<colour>DarkRed</colour>
+		<colour>MediumVioletRed</colour>
 	</block>
 	<block>
 		<x>712</x>
 		<y>12</y>
 		<hp>1</hp>
-		<colour>Red</colour>
+		<colour>MediumVioletRed</colour>
 	</block>
 	<block>
 		<x>780</x>
 		<y>12</y>
 		<hp>1</hp>
-		<colour>DarkRed</colour>
+		<colour>MediumVioletRed</colour>
 	</block>
 	<block>
-		<x>296</x>
-		<y>104</y>
+		<x>12</x>
+		<y>53</y>
 		<hp>1</hp>
-		<colour>DarkRed</colour>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>80</x>
+		<y>53</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>147</x>
+		<y>53</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
 	</block>
 	<block>
 		<x>364</x>
-		<y>104</y>
+		<y>53</y>
 		<hp>1</hp>
-		<colour>DarkRed</colour>
+		<colour>MediumVioletRed</colour>
 	</block>
 	<block>
 		<x>431</x>
-		<y>104</y>
+		<y>53</y>
 		<hp>1</hp>
-		<colour>Red</colour>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>645</x>
+		<y>53</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>712</x>
+		<y>53</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>780</x>
+		<y>53</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>12</x>
+		<y>95</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>12</x>
+		<y>95</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>80</x>
+		<y>95</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>147</x>
+		<y>95</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>215</x>
+		<y>95</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>431</x>
+		<y>95</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>645</x>
+		<y>95</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>712</x>
+		<y>95</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>780</x>
+		<y>95</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>12</x>
+		<y>135</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>80</x>
+		<y>135</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>147</x>
+		<y>135</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>215</x>
+		<y>135</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>296</x>
+		<y>135</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>364</x>
+		<y>135</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>577</x>
+		<y>135</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>645</x>
+		<y>135</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>712</x>
+		<y>135</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>780</x>
+		<y>135</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>12</x>
+		<y>181</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+		<block>
+		<x>80</x>
+		<y>181</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>147</x>
+		<y>181</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
 	</block>
 	<block>
 		<x>499</x>
-		<y>104</y>
+		<y>181</y>
 		<hp>1</hp>
-		<colour>Red</colour>
-	</block> 
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>712</x>
+		<y>181</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>780</x>
+		<y>181</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>12</x>
+		<y>224</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>80</x>
+		<y>224</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>215</x>
+		<y>224</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>296</x>
+		<y>224</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>431</x>
+		<y>224</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>499</x>
+		<y>224</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>577</x>
+		<y>224</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>645</x>
+		<y>224</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>780</x>
+		<y>224</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>12</x>
+		<y>270</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>147</x>
+		<y>270</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>296</x>
+		<y>270</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>431</x>
+		<y>270</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>499</x>
+		<y>270</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>577</x>
+		<y>270</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>645</x>
+		<y>270</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>712</x>
+		<y>270</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>780</x>
+		<y>270</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>12</x>
+		<y>317</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>80</x>
+		<y>317</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>147</x>
+		<y>317</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>215</x>
+		<y>317</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>296</x>
+		<y>317</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>431</x>
+		<y>317</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>499</x>
+		<y>317</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>577</x>
+		<y>317</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>645</x>
+		<y>317</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>712</x>
+		<y>317</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>780</x>
+		<y>317</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>12</x>
+		<y>362</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>80</x>
+		<y>362</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>147</x>
+		<y>362</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>215</x>
+		<y>362</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>296</x>
+		<y>362</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>499</x>
+		<y>362</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>577</x>
+		<y>362</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>645</x>
+		<y>362</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>712</x>
+		<y>362</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
+	<block>
+		<x>780</x>
+		<y>362</y>
+		<hp>1</hp>
+		<colour>MediumVioletRed</colour>
+	</block>
 </level>
