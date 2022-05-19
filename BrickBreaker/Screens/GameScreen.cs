@@ -134,6 +134,7 @@ namespace BrickBreaker
             catch
             {
                 //if level doesnt exist then switch to either winner or loser screen
+                OnEnd();
                 return;
             }
 
@@ -212,7 +213,6 @@ namespace BrickBreaker
 
                 if (lives == 0)
                 {
-                    gameTimer.Enabled = false;
                     OnEnd();
                 }
             }
@@ -322,13 +322,16 @@ namespace BrickBreaker
 
         public void OnEnd()
         {
+            //stop game timer
+            gameTimer.Enabled = false;
+
             // Goes to the game over screen
             Form form = this.FindForm();
-            MenuScreen ps = new MenuScreen();
+            GameoverScreen gos = new GameoverScreen();
             
-            ps.Location = new Point((form.Width - ps.Width) / 2, (form.Height - ps.Height) / 2);
+            gos.Location = new Point((form.Width - gos.Width) / 2, (form.Height - gos.Height) / 2);
 
-            form.Controls.Add(ps);
+            form.Controls.Add(gos);
             form.Controls.Remove(this);
         }
 
@@ -361,5 +364,6 @@ namespace BrickBreaker
             paddle.speed = 8;
             ball.size = 20;
         }
+
     }
 }
