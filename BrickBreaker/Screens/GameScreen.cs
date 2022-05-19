@@ -42,9 +42,7 @@ namespace BrickBreaker
         // Brushes
         SolidBrush paddleBrush = new SolidBrush(Color.White);
         SolidBrush ballBrush = new SolidBrush(Color.White);
-        SolidBrush blockBrush = new SolidBrush(Color.Red);
         SolidBrush powerupBrush = new SolidBrush(Color.Green);
-
 
 
         #endregion
@@ -85,21 +83,9 @@ namespace BrickBreaker
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
 
+           currentLevel = 1;
 
-            //callback to level loading  
-            xmlLoad();
-            //go to next level
-            blocks.Clear();
-            int x = 10;
-
-            while (blocks.Count < 12)
-            {
-                x += 57;
-                Block b1 = new Block(x, 10, 1, Color.White);
-                blocks.Add(b1);
-
-            }
-           // nextLevel();
+           nextLevel();
        
             // start the game engine loop
             gameTimer.Enabled = true;
@@ -172,7 +158,7 @@ namespace BrickBreaker
             {
                 XmlReader reader = XmlReader.Create(level);
 
-                int newX, newY, newHp, newWidth, newHeight;
+                int newX, newY, newHp;
                 Color newColour;
 
                 while (reader.Read())
@@ -187,16 +173,10 @@ namespace BrickBreaker
                         reader.ReadToNextSibling("hp");
                         newHp = Convert.ToInt32(reader.ReadString());
 
-                        reader.ReadToNextSibling("width");
-                        newWidth = Convert.ToInt32(reader.ReadString());
-
-                        reader.ReadToNextSibling("height");
-                        newHeight = Convert.ToInt32(reader.ReadString());
-
                         reader.ReadToNextSibling("colour");
                         newColour = Color.FromName(reader.ReadString());
 
-                        Block b = new Block(newX, newY, newHp, /*newWidth, newHeight,*/ newColour);
+                        Block b = new Block(newX, newY, newHp, newColour);
                         blocks.Add(b);
                     }
                 }
@@ -205,6 +185,7 @@ namespace BrickBreaker
             catch
             {
                 //if level doesnt exist then switch to either winner or loser screen
+                OnEnd();
                 return;
             }
 
@@ -245,6 +226,7 @@ namespace BrickBreaker
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
+            lifeCount.Text = $"{lives}";
             powerUpTimer--;
             if (powerUpTimer >= 0)
             {
@@ -284,7 +266,6 @@ namespace BrickBreaker
 
                 if (lives == 0)
                 {
-                    gameTimer.Enabled = false;
                     OnEnd();
                 }
             }
@@ -297,40 +278,59 @@ namespace BrickBreaker
             {
                 foreach (PowerUp p in powerups)
                 {
-                    if (powerUp.PaddleCollide(paddle))
+                    if (p.PaddleCollide(paddle))
                     {
-                        int powerUpchoice = r.Next(1,11);
+                        powerups.Remove(p);
                         //start poweruptimer 
                         powerUpTimer = 800;
                         //increase length of  (comment back in after testing others)
-                        if (powerUpchoice > 8)
+                        if (p.powerUpType == "Long Paddle")
                         {
-                            paddle.width = paddle.width + 50;
+                            if (paddle.width < 250)
+                            {
+                                paddle.width = paddle.width + 50;
+                            }
+                            else
+                            {
+                                lives++;
+                            }
                         }
                         //add life
-                        else if (powerUpchoice == 2)
+                        else if (p.powerUpType == "Add Life")
                         { lives++; }
                         //speed up paddle and shorten it
-                        else if (powerUpchoice == 3 || powerUpchoice == 4 || powerUpchoice == 5)
+                        else if (p.powerUpType == "Short Paddle")
                         {
-                            paddle.speed = paddle.speed + 4;
-                            paddle.width = paddle.width - 20;
+                            if (paddle.speed < 12 && paddle.width > 20)
+                            {
+                                paddle.speed = paddle.speed + 4;
+                                paddle.width = paddle.width - 20;
+                            }
+                            else
+                            {
+                                lives++;
+                            }
+
                         }
-                        else if (powerUpchoice == 6 || powerUpchoice == 7)
+                        else if (p.powerUpType == "Large Ball")
                         { //increase ball size
-                          ball.size = ball.size + ball.size / 2;
+                            if (ball.size < 50)
+                            {
+                                ball.size = ball.size + ball.size / 2;
+                            }
+                            else
+                            {
+                                lives++;
+                            }
                         }
                     }
-                    if (p.y >= paddle.y)
-                    {
-                        powerups.Remove(powerUp);
-                    }
+
                 }
             }
             catch
-            {
-
+            { 
             }
+            
             // Check if ball has collided with any blocks
             foreach (Block b in blocks)
             {
@@ -347,13 +347,17 @@ namespace BrickBreaker
                         int powerUpY = b.y;
                         int powerUpSpeed = 3;
                         int powerUpSize = 10;
+
+
+
                         powerUp = new PowerUp(powerUpX, powerUpY, powerUpSpeed, powerUpSize);
                         powerups.Add(powerUp);
+                        powerUp.PowerUpChoice();
                     }
                     if (blocks.Count == 0)
                     {
-                        gameTimer.Enabled = false;
-                        OnEnd();
+                        currentLevel++;
+                        nextLevel();
                     }
 
                     break;
@@ -371,13 +375,16 @@ namespace BrickBreaker
 
         public void OnEnd()
         {
+            //stop game timer
+            gameTimer.Enabled = false;
+
             // Goes to the game over screen
             Form form = this.FindForm();
-            MenuScreen ps = new MenuScreen();
+            GameoverScreen gos = new GameoverScreen();
+            
+            gos.Location = new Point((form.Width - gos.Width) / 2, (form.Height - gos.Height) / 2);
 
-            ps.Location = new Point((form.Width - ps.Width) / 2, (form.Height - ps.Height) / 2);
-
-            form.Controls.Add(ps);
+            form.Controls.Add(gos);
             form.Controls.Remove(this);
         }
 
@@ -390,11 +397,11 @@ namespace BrickBreaker
             // Draws blocks
             foreach (Block b in blocks)
             {
-                e.Graphics.FillRectangle(blockBrush, b.x, b.y, b.width, b.height);
+                e.Graphics.FillRectangle(new SolidBrush(b.colour), b.x, b.y, b.width, b.height);
             }
 
             // Draws ball
-            e.Graphics.FillRectangle(ballBrush, ball.x, ball.y, ball.size, ball.size);
+            e.Graphics.FillEllipse(ballBrush, ball.x, ball.y, ball.size, ball.size);
 
             //Draws PowerUp
 
@@ -411,5 +418,6 @@ namespace BrickBreaker
             paddle.speed = 8;
             ball.size = 20;
         }
+
     }
 }

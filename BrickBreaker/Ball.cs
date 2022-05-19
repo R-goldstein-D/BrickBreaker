@@ -33,7 +33,7 @@ namespace BrickBreaker
             }
             else if (xSpeed >= 10)
             {
-                xSpeed *= -0.8;
+                xSpeed *= 0.8;
             }
             if (ySpeed == 0.1)
             {
@@ -43,6 +43,7 @@ namespace BrickBreaker
             {
                 ySpeed *= -0.8;
             }
+         
            
         }
 
@@ -60,17 +61,25 @@ namespace BrickBreaker
                   
                     if(xSpeed <= 0.2 && xSpeed >= -0.2)
                     {
-                        xSpeed *= rand.Next(Convert.ToInt32(-1.5), -1);
+                        xSpeed *= rand.Next(Convert.ToInt32(-1.5), 1);
                     }
-                    else
+                    else if (xSpeed == 0)
+                    {
+                        xSpeed += 2;
+                    }
+                    else 
                     {
                         xSpeed *= -1;
                     }
-                    
+      
 
                     if (ySpeed <= 0.2 && xSpeed >= -0.2)
                     {
                         ySpeed = -1.5;
+                    }
+                    else if (ySpeed == 0)
+                    {
+                        ySpeed += 2;
                     }
                     else 
                     {
@@ -96,7 +105,7 @@ namespace BrickBreaker
 
                 xSpeed *= 1;
 
-                if (xSpeed < 0.2 && xSpeed > -0.2)
+                if (xSpeed < 1 && xSpeed > -1)
                 {
                     xSpeed *= rand.Next(1, 3);
                 }
