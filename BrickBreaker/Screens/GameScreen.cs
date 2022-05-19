@@ -413,6 +413,15 @@ namespace BrickBreaker
             {
                 e.Graphics.FillRectangle(powerupBrush, powerUp.x, powerUp.y, powerUp.size, powerUp.size);
             }
+            if (powerUpTimer <= 100)
+            {
+                powerUpTimerLabel.ForeColor = Color.Red;
+            }
+            else if (powerUpTimer >= 101)
+            {
+                powerUpTimerLabel.ForeColor = Color.White;
+            }
+
         }
         public void Reset_PowerUps()
         {
