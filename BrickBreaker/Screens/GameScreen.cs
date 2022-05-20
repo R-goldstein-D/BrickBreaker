@@ -234,8 +234,6 @@ namespace BrickBreaker
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-
-            lifeCount.Text = $"{lives}";
             powerUpTimer--;
 
             if (powerUpTimer >= 0)
@@ -448,6 +446,8 @@ namespace BrickBreaker
 
             // Draws score
             e.Graphics.DrawString("SCORE: " + Convert.ToString(score), new Font("Kristen", 18), pBrush, 116, 482);
+            //draw lives
+            e.Graphics.DrawString("LIVES: " + Convert.ToString(lives), new Font("Kristen", 18), pBrush, 703, 482);
 
         }
         public void Reset_PowerUps()
