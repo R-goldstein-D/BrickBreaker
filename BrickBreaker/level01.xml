@@ -4,55 +4,7 @@
 		<x>12</x>
 		<y>12</y>
 		<hp>1</hp>
-		<colour>Brown</colour>
-	</block>
-	<block>
-		<x>23</x>
-		<y>15</y>
-		<hp>1</hp>
-		<colour>Brown</colour>
-	</block>
-	<block>
-		<x>42</x>
-		<y>42</y>
-		<hp>1</hp>
-		<colour>Brown</colour>
-	</block>
-	<block>
-		<x>760</x>
-		<y>345</y>
-		<hp>1</hp>
-		<colour>Brown</colour>
-	</block>
-	<block>
-		<x>567</x>
-		<y>90</y>
-		<hp>1</hp>
-		<colour>Brown</colour>
-	</block>
-	<block>
-		<x>840</x>
-		<y>432</y>
-		<hp>1</hp>
-		<colour>Brown</colour>
-	</block>
-	<block>
-		<x>12</x>
-		<y>12</y>
-		<hp>1</hp>
-		<colour>Brown</colour>
-	</block>
-	<block>
-		<x>657</x>
-		<y>192</y>
-		<hp>1</hp>
-		<colour>Brown</colour>
-	</block>
-	<block>
-		<x>756</x>
-		<y>342</y>
-		<hp>1</hp>
-		<colour>Brown</colour>
+		<colour>MediumVioletRed</colour>
 	</block>
 	<block>
 		<x>80</x>
