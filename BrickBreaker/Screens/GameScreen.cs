@@ -1,7 +1,7 @@
 ﻿/*  Created by: 
  *  Project: Brick Breaker
  *  Date: 
- */ 
+ */
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +27,8 @@ namespace BrickBreaker
 
         // Game values
         int lives;
+        public static int score;
+        int currentLevel;
 
         // Paddle and Ball objects
         Paddle paddle;
@@ -42,14 +44,11 @@ namespace BrickBreaker
         // Brushes
         SolidBrush paddleBrush = new SolidBrush(Color.White);
         SolidBrush ballBrush = new SolidBrush(Color.White);
-        SolidBrush blockBrush = new SolidBrush(Color.Red);
         SolidBrush powerupBrush = new SolidBrush(Color.Green);
+        SolidBrush pBrush = new SolidBrush(Color.White);
 
 
         #endregion
-
-        //game values
-        int currentLevel;
 
         public GameScreen()
         {
@@ -84,36 +83,79 @@ namespace BrickBreaker
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
 
+            //start at level 1
             currentLevel = 1;
 
-            ////go to next level
-            //blocks.Clear();
-            //int x = 10;
+            //reset score
+            score = 0;
 
-            //while (blocks.Count < 12)
-            //{
-            //    x += 57;
-            //    Block b1 = new Block(x, 10, 1, Color.White);
-            //    blocks.Add(b1);
+            nextLevel();
 
-            //}
-           nextLevel();
-       
             // start the game engine loop
             gameTimer.Enabled = true;
 
             //setup powerup values for testing purposes
-            int powerUpX;
-            int powerUpY;
+            int powerUpX = 0;
+            int powerUpY = 0;
             int powerUpSpeed = 3;
             int powerUpSize = ballSize / 2;
+            powerUp = new PowerUp(powerUpX, powerUpY, powerUpSpeed, powerUpSize);
+
+
+
         }
+        #region Creates blocks for generic level. Need to replace with code that loads levels.
+
+        //TODO - replace all the code in this region eventually with code that loads levels from xml files
+        //reads Xml file then creates objects from the infomation in the xml file 
+        public void xmlLoad()
+        {
+            //counter to use when level is cleared of blocks/bricks 
+            int blockCounter;
+            //intergers for level objects 
+            int newX, newY, newHp;
+            //strings for levels objects and locations 
+            string x, y, hp;
+            //colour for colour objects 
+            Color newColour;
+
+            XmlReader reader = XmlReader.Create("Resources/level1.xml");
+            while (reader.Read())
+            {
+                if (reader.NodeType == XmlNodeType.Text)
+                {
+                    x = reader.ReadContentAsString();
+
+                    newX = Convert.ToInt32(x);
+
+                    reader.ReadToNextSibling("y");
+                    newY = Convert.ToInt32(reader.ReadString());
+
+
+                    reader.ReadToNextSibling("hp");
+                    newHp = Convert.ToInt32(reader.ReadString());
+
+
+                    reader.ReadToNextSibling("colour");
+                    newColour = Color.FromName(reader.ReadString());
+
+                    Block blocklevel = new Block(newX, newY, newHp, newColour);
+                    blocks.Add(blocklevel);
+                }
+            }
+            reader.Close();
+
+
+        }
+
+
+        #endregion
+
 
         //code to go from one level to the next
         public void nextLevel()
         {
             blocks.Clear();
-
             string level = $"level0{currentLevel}.xml";
 
             try
@@ -135,12 +177,6 @@ namespace BrickBreaker
                         reader.ReadToNextSibling("hp");
                         newHp = Convert.ToInt32(reader.ReadString());
 
-                        //reader.ReadToNextSibling("width");
-                        //newWidth = Convert.ToInt32(reader.ReadString());
-
-                        //reader.ReadToNextSibling("height");
-                        //newHeight = Convert.ToInt32(reader.ReadString());
-
                         reader.ReadToNextSibling("colour");
                         newColour = Color.FromName(reader.ReadString());
 
@@ -152,7 +188,12 @@ namespace BrickBreaker
             }
             catch
             {
-                //if level doesnt exist then switch to either winner or loser screen
+                //if level doesnt exist then switch loser screen or if win then winner screen
+                OnEnd();
+                if (currentLevel == 8 && blocks.Count == 0)
+                {
+                    OnVictory();
+                }
                 return;
             }
 
@@ -189,12 +230,14 @@ namespace BrickBreaker
             }
         }
 
+
+
         private void gameTimer_Tick(object sender, EventArgs e)
-            {
-=======
         {
+
             lifeCount.Text = $"{lives}";
             powerUpTimer--;
+
             if (powerUpTimer >= 0)
             {
                 powerUpTimerLabel.Visible = true;
@@ -233,11 +276,9 @@ namespace BrickBreaker
 
                 if (lives == 0)
                 {
-                    gameTimer.Enabled = false;
                     OnEnd();
                 }
             }
-
             // Check for collision of ball with paddle, (incl. paddle movement)
             ball.PaddleCollision(paddle);
 
@@ -296,15 +337,15 @@ namespace BrickBreaker
                 }
             }
             catch
-            { 
+            {
             }
-            
+
             // Check if ball has collided with any blocks
             foreach (Block b in blocks)
             {
                 if (ball.BlockCollision(b))
                 {
-                    
+                    score++;
                     blocks.Remove(b);
 
                     //check if powerups spawn
@@ -339,18 +380,40 @@ namespace BrickBreaker
 
             //redraw the screen
             Refresh();
+
+
         }
+
 
         public void OnEnd()
         {
+            //stop game timer
+            gameTimer.Enabled = false;
+
             // Goes to the game over screen
             Form form = this.FindForm();
-            MenuScreen ps = new MenuScreen();
-            
-            ps.Location = new Point((form.Width - ps.Width) / 2, (form.Height - ps.Height) / 2);
+            GameoverScreen gos = new GameoverScreen();
 
-            form.Controls.Add(ps);
+            gos.Location = new Point((form.Width - gos.Width) / 2, (form.Height - gos.Height) / 2);
+
+            form.Controls.Add(gos);
             form.Controls.Remove(this);
+        }
+
+        public void OnVictory()
+        {
+            //stop game timer
+            gameTimer.Enabled = false;
+
+            // Goes to the game over screen
+            Form form = this.FindForm();
+            VictoryScreen vic = new VictoryScreen();
+
+            vic.Location = new Point((form.Width - vic.Width) / 2, (form.Height - vic.Height) / 2);
+
+            form.Controls.Add(vic);
+            form.Controls.Remove(this);
+
         }
 
         public void GameScreen_Paint(object sender, PaintEventArgs e)
@@ -362,17 +425,30 @@ namespace BrickBreaker
             // Draws blocks
             foreach (Block b in blocks)
             {
-                e.Graphics.FillRectangle(blockBrush, b.x, b.y, b.width, b.height);
+                e.Graphics.FillRectangle(new SolidBrush(b.colour), b.x, b.y, b.width, b.height);
             }
 
             // Draws ball
             e.Graphics.FillEllipse(ballBrush, ball.x, ball.y, ball.size, ball.size);
 
             //Draws PowerUp
-            foreach (PowerUp powerUp in powerups )
+
+            foreach (PowerUp powerUp in powerups)
             {
                 e.Graphics.FillRectangle(powerupBrush, powerUp.x, powerUp.y, powerUp.size, powerUp.size);
             }
+            if (powerUpTimer <= 100)
+            {
+                powerUpTimerLabel.ForeColor = Color.Red;
+            }
+            else if (powerUpTimer >= 101)
+            {
+                powerUpTimerLabel.ForeColor = Color.White;
+            }
+
+            // Draws score
+            e.Graphics.DrawString("SCORE: " + Convert.ToString(score), new Font("Kristen", 18), pBrush, 106, 723);
+
         }
         public void Reset_PowerUps()
         {
@@ -383,4 +459,5 @@ namespace BrickBreaker
             ball.size = 20;
         }
     }
+
 }
