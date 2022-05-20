@@ -1,6 +1,6 @@
 ﻿namespace BrickBreaker
 {
-    partial class GameoverScreen
+    partial class VictoryScreen
     {
         /// <summary> 
         /// Required designer variable.
@@ -38,7 +38,7 @@
             this.exitButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitButton.Location = new System.Drawing.Point(551, 505);
+            this.exitButton.Location = new System.Drawing.Point(494, 472);
             this.exitButton.Margin = new System.Windows.Forms.Padding(6);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(291, 116);
@@ -50,19 +50,19 @@
             // yousuckLabel
             // 
             this.yousuckLabel.AutoSize = true;
-            this.yousuckLabel.Location = new System.Drawing.Point(521, 340);
+            this.yousuckLabel.Location = new System.Drawing.Point(363, 231);
             this.yousuckLabel.Name = "yousuckLabel";
-            this.yousuckLabel.Size = new System.Drawing.Size(339, 20);
-            this.yousuckLabel.TabIndex = 3;
-            this.yousuckLabel.Text = "You don\'t mind watching someone eat do you?";
+            this.yousuckLabel.Size = new System.Drawing.Size(535, 20);
+            this.yousuckLabel.TabIndex = 4;
+            this.yousuckLabel.Text = "You look like you\'re about to tell your friend to not come to school tomorrow";
             // 
-            // GameoverScreen
+            // VictoryScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.yousuckLabel);
             this.Controls.Add(this.exitButton);
-            this.Name = "GameoverScreen";
+            this.Name = "VictoryScreen";
             this.Size = new System.Drawing.Size(1281, 813);
             this.ResumeLayout(false);
             this.PerformLayout();
