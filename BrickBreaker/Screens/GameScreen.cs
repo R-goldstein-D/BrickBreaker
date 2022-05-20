@@ -27,6 +27,8 @@ namespace BrickBreaker
 
         // Game values
         int lives;
+        public static int score;
+        int currentLevel;
 
         // Paddle and Ball objects
         Paddle paddle;
@@ -43,12 +45,10 @@ namespace BrickBreaker
         SolidBrush paddleBrush = new SolidBrush(Color.White);
         SolidBrush ballBrush = new SolidBrush(Color.White);
         SolidBrush powerupBrush = new SolidBrush(Color.Green);
+        SolidBrush pBrush = new SolidBrush(Color.White);
 
 
         #endregion
-
-        //game values
-        int currentLevel;
 
         public GameScreen()
         {
@@ -83,7 +83,11 @@ namespace BrickBreaker
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
 
+            //start at level 1
             currentLevel = 1;
+
+            //reset score
+            score = 0;
 
             nextLevel();
 
@@ -341,7 +345,7 @@ namespace BrickBreaker
             {
                 if (ball.BlockCollision(b))
                 {
-
+                    score++;
                     blocks.Remove(b);
 
                     //check if powerups spawn
@@ -441,6 +445,9 @@ namespace BrickBreaker
             {
                 powerUpTimerLabel.ForeColor = Color.White;
             }
+
+            // Draws score
+            e.Graphics.DrawString("SCORE: " + Convert.ToString(score), new Font("Kristen", 18), pBrush, 900, 20);
 
         }
         public void Reset_PowerUps()
