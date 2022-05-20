@@ -291,7 +291,7 @@ namespace BrickBreaker
                     {
                         powerups.Remove(p);
                         //start poweruptimer 
-                        powerUpTimer = 800;
+                        powerUpTimer = 400;
                         //increase length of  (comment back in after testing others)
                         if (p.powerUpType == "Long Paddle")
                         {
@@ -447,7 +447,7 @@ namespace BrickBreaker
             }
 
             // Draws score
-            e.Graphics.DrawString("SCORE: " + Convert.ToString(score), new Font("Kristen", 18), pBrush, 106, 723);
+            e.Graphics.DrawString("SCORE: " + Convert.ToString(score), new Font("Kristen", 18), pBrush, 116, 482);
 
         }
         public void Reset_PowerUps()
