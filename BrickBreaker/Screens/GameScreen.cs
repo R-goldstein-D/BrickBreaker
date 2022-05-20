@@ -190,8 +190,6 @@ namespace BrickBreaker
         }
 
         private void gameTimer_Tick(object sender, EventArgs e)
-            {
-=======
         {
             lifeCount.Text = $"{lives}";
             powerUpTimer--;

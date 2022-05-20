@@ -301,12 +301,6 @@
 		<colour>DarkGreen</colour>
 	</block>
 	<block>
-		<x>471</x>
-		<y>192</y>
-		<hp>3</hp>
-		<colour>DarkGreen</colour>
-	</block>
-	<block>
 		<x>685</x>
 		<y>161</y>
 		<hp>3</hp>
