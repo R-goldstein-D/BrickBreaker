@@ -447,7 +447,7 @@ namespace BrickBreaker
             }
 
             // Draws score
-            e.Graphics.DrawString("SCORE: " + Convert.ToString(score), new Font("Kristen", 18), pBrush, 900, 20);
+            e.Graphics.DrawString("SCORE: " + Convert.ToString(score), new Font("Kristen", 18), pBrush, 106, 723);
 
         }
         public void Reset_PowerUps()
