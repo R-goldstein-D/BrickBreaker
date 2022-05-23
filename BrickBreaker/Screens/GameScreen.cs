@@ -382,7 +382,6 @@ namespace BrickBreaker
 
         }
 
-
         public void OnEnd()
         {
             //stop game timer
