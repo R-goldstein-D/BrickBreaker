@@ -44,7 +44,6 @@ namespace BrickBreaker
                 ySpeed *= -0.8;
             }
 
-
         }
 
         public bool BlockCollision(Block b)
@@ -88,7 +87,7 @@ namespace BrickBreaker
 
                 if (b.hp <= 0)
                 {
-                    GameScreen.score++;
+                    Form1.score++;
                 }
             }
 
