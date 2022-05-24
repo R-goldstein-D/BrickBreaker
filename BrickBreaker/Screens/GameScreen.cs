@@ -153,7 +153,7 @@ namespace BrickBreaker
         {
             blocks.Clear();
             string level = $"level0{currentLevel}.xml";
-
+            
             try
             {
                 XmlReader reader = XmlReader.Create(level);

@@ -64,6 +64,48 @@ namespace BrickBreaker.Properties {
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
         ///&lt;level&gt;
         ///	&lt;block&gt;
+        ///		&lt;x&gt;59&lt;/x&gt;
+        ///		&lt;y&gt;37&lt;/y&gt;
+        ///		&lt;hp&gt;8&lt;/hp&gt;
+        ///		&lt;colour&gt;DarkBlue&lt;/colour&gt;
+        ///	&lt;/block&gt;
+        ///	&lt;block&gt;
+        ///		&lt;x&gt;171&lt;/x&gt;
+        ///		&lt;y&gt;12&lt;/y&gt;
+        ///		&lt;hp&gt;1&lt;/hp&gt;
+        ///		&lt;colour&gt;Black&lt;/colour&gt;
+        ///	&lt;/block&gt;
+        ///	&lt;block&gt;
+        ///		&lt;x&gt;171&lt;/x&gt;
+        ///		&lt;y&gt;53&lt;/y&gt;
+        ///		&lt;hp&gt;5&lt;/hp&gt;
+        ///		&lt;colour&gt;DarkRed&lt;/colour&gt;
+        ///	&lt;/block&gt;
+        ///	&lt;block&gt;
+        ///		&lt;x&gt;171&lt;/x&gt;
+        ///		&lt;y&gt;84&lt;/y&gt;
+        ///		&lt;hp&gt;5&lt;/hp&gt;
+        ///		&lt;colour&gt;DarkRed&lt;/colour&gt;
+        ///	&lt;/block&gt;
+        ///	&lt;block&gt;
+        ///		&lt;x&gt;171&lt;/x&gt;
+        ///		&lt;y&gt;115&lt;/y&gt;
+        ///		&lt;hp&gt;5&lt;/hp&gt;
+        ///		&lt;colour&gt;DarkRed&lt;/colour&gt;
+        ///	&lt;/block&gt;
+        ///	&lt;block&gt;
+        ///		&lt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string level07 {
+            get {
+                return ResourceManager.GetString("level07", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+        ///&lt;level&gt;
+        ///	&lt;block&gt;
         ///		&lt;x&gt;95&lt;/x&gt;
         ///		&lt;y&gt;68&lt;/y&gt;
         ///		&lt;hp&gt;1&lt;/hp&gt;
