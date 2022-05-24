@@ -44,7 +44,6 @@ namespace BrickBreaker
                 ySpeed *= -0.8;
             }
 
-
         }
 
         public bool BlockCollision(Block b)
