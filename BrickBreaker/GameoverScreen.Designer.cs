@@ -41,7 +41,7 @@
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitButton.Location = new System.Drawing.Point(468, 440);
-            this.exitButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(6);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(291, 116);
             this.exitButton.TabIndex = 2;
@@ -61,7 +61,7 @@
             // highscoreLabel
             // 
             this.highscoreLabel.AutoSize = true;
-            this.highscoreLabel.Location = new System.Drawing.Point(568, 246);
+            this.highscoreLabel.Location = new System.Drawing.Point(554, 246);
             this.highscoreLabel.Name = "highscoreLabel";
             this.highscoreLabel.Size = new System.Drawing.Size(82, 20);
             this.highscoreLabel.TabIndex = 4;
@@ -70,7 +70,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(554, 192);
+            this.label1.Location = new System.Drawing.Point(554, 198);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 20);
             this.label1.TabIndex = 5;

@@ -88,7 +88,7 @@ namespace BrickBreaker
 
                 if (b.hp <= 0)
                 {
-                    GameScreen.score++;
+                    Form1.score++;
                 }
             }
 

@@ -27,7 +27,6 @@ namespace BrickBreaker
 
         // Game values
         int lives;
-        public static int score;
         int currentLevel;
 
         // Paddle and Ball objects
@@ -87,7 +86,7 @@ namespace BrickBreaker
             currentLevel = 1;
 
             //reset score
-            score = 0;
+            Form1.score = 0;
 
             nextLevel();
 
@@ -297,7 +296,7 @@ namespace BrickBreaker
             {
                 if (ball.BlockCollision(b))
                 {
-                    score++;
+                    Form1.score++;
                     blocks.Remove(b);
 
                     //check if powerups spawn
@@ -308,8 +307,6 @@ namespace BrickBreaker
                         int powerUpY = b.y;
                         int powerUpSpeed = 3;
                         int powerUpSize = 10;
-
-
 
                         powerUp = new PowerUp(powerUpX, powerUpY, powerUpSpeed, powerUpSize);
                         powerups.Add(powerUp);
@@ -398,7 +395,7 @@ namespace BrickBreaker
             }
 
             // Draws score
-            e.Graphics.DrawString("SCORE: " + Convert.ToString(score), new Font("Kristen", 18), pBrush, 116, 482);
+            e.Graphics.DrawString("SCORE: " + Convert.ToString(Form1.score), new Font("Kristen", 18), pBrush, 116, 482);
             //draw lives
             e.Graphics.DrawString("LIVES: " + Convert.ToString(lives), new Font("Kristen", 18), pBrush, 703, 482);
 

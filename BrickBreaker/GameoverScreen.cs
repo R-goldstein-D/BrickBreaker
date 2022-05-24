@@ -28,11 +28,10 @@ namespace BrickBreaker
 
         private void GameoverScreen_Load(object sender, EventArgs e)
         {
-            int score = Form1.scoreList.Count - 1;
-            highscoreLabel.Text = $"{score}";
+            highscoreLabel.Text = $"{Form1.score}";
 
             // add score to scorelist and refresh scorelist
-            Form1.scoreList.Add(score);
+            Form1.scoreList.Add(Form1.score);
             Form1.scoreList.Sort();
             Form1.scoreList.Reverse();
 

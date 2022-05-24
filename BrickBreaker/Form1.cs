@@ -13,6 +13,9 @@ namespace BrickBreaker
 {
     public partial class Form1 : Form
     {
+
+        public static int score;
+
         public static List<int> scoreList = new List<int>();
 
         public Form1()
