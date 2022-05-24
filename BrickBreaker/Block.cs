@@ -20,11 +20,13 @@ namespace BrickBreaker
 
         public static Random rand = new Random();
 
-        public Block(int _x, int _y, int _hp,Color _colour)
+        public Block(int _x, int _y, int _hp, /*int _width, int _height,*/ Color _colour)
         {
             x = _x;
             y = _y;
             hp = _hp;
+            //width = _width;
+            //height = _height;
             colour = _colour;
             brush = new SolidBrush(colour);
         }
