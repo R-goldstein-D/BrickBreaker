@@ -104,52 +104,6 @@ namespace BrickBreaker
 
 
         }
-        #region Creates blocks for generic level. Need to replace with code that loads levels.
-
-        //TODO - replace all the code in this region eventually with code that loads levels from xml files
-        //reads Xml file then creates objects from the infomation in the xml file 
-        public void xmlLoad()
-        {
-            //counter to use when level is cleared of blocks/bricks 
-            int blockCounter;
-            //intergers for level objects 
-            int newX, newY, newHp;
-            //strings for levels objects and locations 
-            string x, y, hp;
-            //colour for colour objects 
-            Color newColour;
-
-            XmlReader reader = XmlReader.Create("Resources/level1.xml");
-            while (reader.Read())
-            {
-                if (reader.NodeType == XmlNodeType.Text)
-                {
-                    x = reader.ReadContentAsString();
-
-                    newX = Convert.ToInt32(x);
-
-                    reader.ReadToNextSibling("y");
-                    newY = Convert.ToInt32(reader.ReadString());
-
-
-                    reader.ReadToNextSibling("hp");
-                    newHp = Convert.ToInt32(reader.ReadString());
-
-
-                    reader.ReadToNextSibling("colour");
-                    newColour = Color.FromName(reader.ReadString());
-
-                    Block blocklevel = new Block(newX, newY, newHp, newColour);
-                    blocks.Add(blocklevel);
-                }
-            }
-            reader.Close();
-
-
-        }
-
-
-        #endregion
 
 
         //code to go from one level to the next
@@ -234,8 +188,6 @@ namespace BrickBreaker
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-
-            lifeCount.Text = $"{lives}";
             powerUpTimer--;
 
             if (powerUpTimer >= 0)
@@ -291,7 +243,7 @@ namespace BrickBreaker
                     {
                         powerups.Remove(p);
                         //start poweruptimer 
-                        powerUpTimer = 800;
+                        powerUpTimer = 400;
                         //increase length of  (comment back in after testing others)
                         if (p.powerUpType == "Long Paddle")
                         {
@@ -384,7 +336,6 @@ namespace BrickBreaker
 
         }
 
-
         public void OnEnd()
         {
             //stop game timer
@@ -447,7 +398,9 @@ namespace BrickBreaker
             }
 
             // Draws score
-            e.Graphics.DrawString("SCORE: " + Convert.ToString(score), new Font("Kristen", 18), pBrush, 106, 723);
+            e.Graphics.DrawString("SCORE: " + Convert.ToString(score), new Font("Kristen", 18), pBrush, 116, 482);
+            //draw lives
+            e.Graphics.DrawString("LIVES: " + Convert.ToString(lives), new Font("Kristen", 18), pBrush, 703, 482);
 
         }
         public void Reset_PowerUps()

@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.powerUpTimerLabel = new System.Windows.Forms.Label();
-            this.livesLabel = new System.Windows.Forms.Label();
-            this.lifeCount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // gameTimer
@@ -53,35 +51,11 @@
             this.powerUpTimerLabel.Text = "label1";
             this.powerUpTimerLabel.Visible = false;
             // 
-            // livesLabel
-            // 
-            this.livesLabel.AutoSize = true;
-            this.livesLabel.ForeColor = System.Drawing.Color.White;
-            this.livesLabel.Location = new System.Drawing.Point(1053, 723);
-            this.livesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.livesLabel.Name = "livesLabel";
-            this.livesLabel.Size = new System.Drawing.Size(60, 20);
-            this.livesLabel.TabIndex = 1;
-            this.livesLabel.Text = "LIVES:";
-            // 
-            // lifeCount
-            // 
-            this.lifeCount.AutoSize = true;
-            this.lifeCount.ForeColor = System.Drawing.Color.White;
-            this.lifeCount.Location = new System.Drawing.Point(1158, 723);
-            this.lifeCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lifeCount.Name = "lifeCount";
-            this.lifeCount.Size = new System.Drawing.Size(60, 20);
-            this.lifeCount.TabIndex = 2;
-            this.lifeCount.Text = "LIVES:";
-            // 
             // GameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Controls.Add(this.lifeCount);
-            this.Controls.Add(this.livesLabel);
             this.Controls.Add(this.powerUpTimerLabel);
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -99,7 +73,5 @@
 
         private System.Windows.Forms.Timer gameTimer;
         private System.Windows.Forms.Label powerUpTimerLabel;
-        private System.Windows.Forms.Label livesLabel;
-        private System.Windows.Forms.Label lifeCount;
     }
 }
