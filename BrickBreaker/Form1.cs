@@ -22,7 +22,7 @@ namespace BrickBreaker
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            LoadScore();
+            //LoadScore();
 
             // Start the program centred on the Menu Screen
             MenuScreen ms = new MenuScreen();
@@ -31,19 +31,5 @@ namespace BrickBreaker
             ms.Location = new Point((this.Width - ms.Width) / 2, (this.Height - ms.Height) / 2);
         }
 
-        public void LoadScore()
-        {
-            // read score.xml and copy data into scoreList
-            XmlReader xmlReader = XmlReader.Create("HighScore.xml");
-
-            while (xmlReader.Read())
-            {
-                if (xmlReader.NodeType == XmlNodeType.Text)
-                {
-                    scoreList.Add(int.Parse(xmlReader.Value));
-                }
-            }
-            xmlReader.Close();
-        }
     }
 }

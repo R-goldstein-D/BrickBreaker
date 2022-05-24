@@ -167,9 +167,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="HighScore.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="level05.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
