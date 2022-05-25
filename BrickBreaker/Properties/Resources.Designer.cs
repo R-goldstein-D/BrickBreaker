@@ -136,10 +136,82 @@ namespace BrickBreaker.Properties {
         ///		&lt;colour&gt;Goldenrod&lt;/colour&gt;
         ///	&lt;/block&gt;
         ///	&lt;b [rest of string was truncated]&quot;;.
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static string level1 {
+        internal static System.Drawing.Bitmap Level1_Background {
             get {
-                return ResourceManager.GetString("level1", resourceCulture);
+                object obj = ResourceManager.GetObject("Level1_Background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Level2_Background {
+            get {
+                object obj = ResourceManager.GetObject("Level2_Background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Level3_Background {
+            get {
+                object obj = ResourceManager.GetObject("Level3_Background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Level4_Background {
+            get {
+                object obj = ResourceManager.GetObject("Level4_Background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Level5_Background {
+            get {
+                object obj = ResourceManager.GetObject("Level5_Background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Level6_Background {
+            get {
+                object obj = ResourceManager.GetObject("Level6_Background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Level7_Background {
+            get {
+                object obj = ResourceManager.GetObject("Level7_Background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Level8_Background {
+            get {
+                object obj = ResourceManager.GetObject("Level8_Background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

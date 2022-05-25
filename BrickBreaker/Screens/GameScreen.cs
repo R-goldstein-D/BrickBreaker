@@ -46,6 +46,7 @@ namespace BrickBreaker
         SolidBrush powerupBrush = new SolidBrush(Color.Green);
         SolidBrush pBrush = new SolidBrush(Color.White);
 
+        //images for level backgrounds
 
         #endregion
 
@@ -89,6 +90,8 @@ namespace BrickBreaker
             Form1.score = 0;
 
             nextLevel();
+
+            BGchange();
 
             // start the game engine loop
             gameTimer.Enabled = true;
@@ -151,6 +154,42 @@ namespace BrickBreaker
             }
 
         }
+        public void BGchange()
+        {
+            if (currentLevel == 1)
+            {
+                this.BackgroundImage = Properties.Resources.Level1_Background;
+            }
+            else if (currentLevel == 2)
+            {
+                this.BackgroundImage = Properties.Resources.Level2_Background;
+            }
+            else if (currentLevel == 3)
+            {
+                this.BackgroundImage = Properties.Resources.Level3_Background;
+            }
+            else if (currentLevel == 4)
+            {
+                this.BackgroundImage = Properties.Resources.Level4_Background;
+            }
+            else if (currentLevel == 5)
+            {
+                this.BackgroundImage = Properties.Resources.Level5_Background;
+            }
+            else if (currentLevel == 6)
+            {
+                this.BackgroundImage = Properties.Resources.Level6_Background;
+            }
+            else if (currentLevel == 7)
+            {
+                this.BackgroundImage = Properties.Resources.Level7_Background;
+            }
+            else if (currentLevel == 8)
+            {
+                this.BackgroundImage = Properties.Resources.Level8_Background;
+            }
+        }
+
         private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             //player 1 button presses
@@ -182,8 +221,6 @@ namespace BrickBreaker
                     break;
             }
         }
-
-
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
@@ -250,13 +287,17 @@ namespace BrickBreaker
                             {
                                 paddle.width = paddle.width + 50;
                             }
-                            else
+                            else if (currentLevel <= 5 && lives < 15)
                             {
                                 lives++;
                             }
+                            else
+                            {
+                                Form1.score = Form1.score + 5;
+                            }
                         }
                         //add life
-                        else if (p.powerUpType == "Add Life")
+                        else if (p.powerUpType == "Add Life" && currentLevel <= 4 && lives < 15)
                         { lives++; }
                         //speed up paddle and shorten it
                         else if (p.powerUpType == "Short Paddle")
@@ -266,9 +307,13 @@ namespace BrickBreaker
                                 paddle.speed = paddle.speed + 4;
                                 paddle.width = paddle.width - 20;
                             }
-                            else
+                            else if (currentLevel <= 5 && lives < 15)
                             {
                                 lives++;
+                            }
+                            else
+                            {
+                                Form1.score = Form1.score + 5;
                             }
 
                         }
@@ -278,9 +323,13 @@ namespace BrickBreaker
                             {
                                 ball.size = ball.size + ball.size / 2;
                             }
-                            else
+                            else if (currentLevel <= 5 && lives < 15)
                             {
                                 lives++;
+                            }
+                            else
+                            {
+                                Form1.score = Form1.score + 5;
                             }
                         }
                     }
@@ -312,7 +361,7 @@ namespace BrickBreaker
                         powerups.Add(powerUp);
                         powerUp.PowerUpChoice();
                     }
-                    if (blocks.Count == 0)
+                    if (blocks.Count == 0 || (blocks.Count == 2 && currentLevel == 4))
                     {
                         currentLevel++;
                         nextLevel();
