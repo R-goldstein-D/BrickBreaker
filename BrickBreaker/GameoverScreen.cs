@@ -46,5 +46,16 @@ namespace BrickBreaker
                 highscoreLabel.Text += $"\n{Form1.scoreList[i]}";
             }
         }
+
+        private void restartButton_Click(object sender, EventArgs e)
+        {
+            GameScreen gs = new GameScreen();
+            Form form = this.FindForm();
+
+            form.Controls.Add(gs);
+            form.Controls.Remove(this);
+
+            gs.Location = new Point((form.Width - gs.Width) / 2, (form.Height - gs.Height) / 2);
+        }
     }
 }
