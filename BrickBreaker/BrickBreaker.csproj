@@ -185,6 +185,15 @@
     <Content Include="level06.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Level8 Background.png" />
+    <None Include="Resources\Level7 Background.png" />
+    <None Include="Resources\Level6 Background.png" />
+    <None Include="Resources\Level5 Background.png" />
+    <None Include="Resources\Level4 Background.png" />
+    <None Include="Resources\Level3 Background.png" />
+    <None Include="Resources\Level2 Background.png" />
+    <None Include="Resources\Level1 Background %281%29.png" />
+    <None Include="Resources\Level1 Background.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

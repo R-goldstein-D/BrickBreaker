@@ -118,7 +118,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="level1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\level1.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="Level1_Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Level1 Background (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Level2_Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Level2 Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Level3_Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Level3 Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Level4_Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Level4 Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Level5_Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Level5 Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Level6_Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Level6 Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Level7_Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Level7 Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Level8_Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Level8 Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

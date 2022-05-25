@@ -48,15 +48,12 @@ namespace BrickBreaker
 
         public bool BlockCollision(Block b)
         {
-
-
             Rectangle blockRec = new Rectangle(b.x, b.y, b.width, b.height);
             Rectangle ballRec = new Rectangle(x, y, size, size);
 
 
             if (ballRec.IntersectsWith(blockRec))
             {
-
 
                 if (xSpeed <= 0.2 && xSpeed >= -0.2)
                 {
@@ -70,7 +67,6 @@ namespace BrickBreaker
                 {
                     xSpeed *= -1;
                 }
-
 
                 if (ySpeed <= 0.2 && xSpeed >= -0.2)
                 {
@@ -124,9 +120,6 @@ namespace BrickBreaker
                 {
                     ySpeed *= rand.Next(-1, Convert.ToInt32(-0.7));
                 }
-
-
-
             }
         }
 
