@@ -103,8 +103,6 @@ namespace BrickBreaker
             int powerUpSize = ballSize / 2;
             powerUp = new PowerUp(powerUpX, powerUpY, powerUpSpeed, powerUpSize);
 
-
-
         }
 
 
