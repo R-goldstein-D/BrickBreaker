@@ -376,8 +376,6 @@ namespace BrickBreaker
 
             //redraw the screen
             Refresh();
-
-
         }
 
         public void OnEnd()
