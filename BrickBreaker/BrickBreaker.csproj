@@ -191,6 +191,7 @@
     <Content Include="level08.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Menu Background.jpg" />
     <None Include="Resources\VictoryScreen Background.png" />
     <None Include="Resources\LoseScreen Background.png" />
     <None Include="Resources\Level8 Background.png" />

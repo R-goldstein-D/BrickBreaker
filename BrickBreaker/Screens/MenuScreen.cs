@@ -45,5 +45,10 @@ namespace BrickBreaker
             isn.Location = new Point((form.Width - isn.Width) / 2, (form.Height - isn.Height) / 2); 
 
         }
+
+        private void MenuScreen_Load(object sender, EventArgs e)
+        {
+            this.BackgroundImage = Properties.Resources.Menu_Background;
+        }
     }
 }
