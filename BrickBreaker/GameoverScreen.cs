@@ -28,6 +28,7 @@ namespace BrickBreaker
 
         private void GameoverScreen_Load(object sender, EventArgs e)
         {
+            this.BackgroundImage = Properties.Resources.LoseScreen_Background;
             highscoreLabel.Text = $"{Form1.score}";
 
             // add score to scorelist and refresh scorelist

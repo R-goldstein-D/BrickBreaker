@@ -21,5 +21,10 @@ namespace BrickBreaker
         {
             Application.Exit();
         }
+
+        private void VictoryScreen_Load(object sender, EventArgs e)
+        {
+            this.BackgroundImage = Properties.Resources.VictoryScreen_Background;
+        }
     }
 }

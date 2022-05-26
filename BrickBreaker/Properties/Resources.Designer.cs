@@ -136,6 +136,14 @@ namespace BrickBreaker.Properties {
         ///		&lt;colour&gt;Goldenrod&lt;/colour&gt;
         ///	&lt;/block&gt;
         ///	&lt;b [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string level1 {
+            get {
+                return ResourceManager.GetString("level1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Level1_Background {
@@ -211,6 +219,26 @@ namespace BrickBreaker.Properties {
         internal static System.Drawing.Bitmap Level8_Background {
             get {
                 object obj = ResourceManager.GetObject("Level8_Background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LoseScreen_Background {
+            get {
+                object obj = ResourceManager.GetObject("LoseScreen_Background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap VictoryScreen_Background {
+            get {
+                object obj = ResourceManager.GetObject("VictoryScreen_Background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

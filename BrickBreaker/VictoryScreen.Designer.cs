@@ -64,6 +64,7 @@
             this.Controls.Add(this.exitButton);
             this.Name = "VictoryScreen";
             this.Size = new System.Drawing.Size(1281, 813);
+            this.Load += new System.EventHandler(this.VictoryScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
